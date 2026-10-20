@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mitchtech.github.io/agent-johnny5/sitemap.xml

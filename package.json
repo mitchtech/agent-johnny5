@@ -1,0 +1,60 @@
+{
+  "name": "agent-johnny5",
+  "version": "0.1.0",
+  "description": "Johnny 5 sound notifications for coding agents: Need input!",
+  "type": "module",
+  "bin": {
+    "agent-johnny5": "scripts/johnny5.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check scripts/johnny5.mjs && node --check scripts/pet.mjs && node --check scripts/build-site.mjs && node --check site/app.js && node --check site/theme.js && node --check scripts/build-gemini.mjs && node --check scripts/check-package.mjs && node scripts/check-project.mjs",
+    "doctor": "node scripts/johnny5.mjs doctor",
+    "site": "node scripts/build-site.mjs",
+    "gemini": "node scripts/build-gemini.mjs",
+    "test:package": "node scripts/check-package.mjs"
+  },
+  "files": [
+    "scripts/johnny5.mjs",
+    "scripts/pet.mjs",
+    "audio",
+    "pets",
+    "plugin.json",
+    ".claude-plugin",
+    ".agents/plugins",
+    "hooks",
+    "docs",
+    "CHANGELOG.md",
+    "assets/previews/banner.png",
+    "assets/previews/alive.gif",
+    "assets/previews/need-input.gif",
+    "assets/previews/no-disassemble-five.gif",
+    "assets/previews/more-input.gif",
+    "assets/previews/malfunction.gif",
+    "skills",
+    "gemini-extension.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchtech/agent-johnny5.git"
+  },
+  "homepage": "https://mitchtech.github.io/agent-johnny5/",
+  "bugs": "https://github.com/mitchtech/agent-johnny5/issues",
+  "author": "Michael J. Mitchell <michael@mitchtech.net>",
+  "license": "MIT",
+  "keywords": [
+    "johnny-5",
+    "short-circuit",
+    "robot",
+    "audio",
+    "notifications",
+    "coding-agents",
+    "claude-code",
+    "codex",
+    "gemini-cli",
+    "gemini-cli-extension"
+  ]
+}

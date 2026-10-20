@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "johnny5",
+  "version": "0.1.0",
+  "description": "Johnny 5 sound notifications for coding agents: Need input!",
+  "author": {
+    "name": "Michael J. Mitchell",
+    "email": "michael@mitchtech.net",
+    "url": "https://github.com/mitchtech"
+  },
+  "homepage": "https://mitchtech.github.io/agent-johnny5/",
+  "repository": "https://github.com/mitchtech/agent-johnny5",
+  "license": "MIT",
+  "keywords": [
+    "audio",
+    "notifications",
+    "coding-agents",
+    "johnny-5",
+    "short-circuit",
+    "robot"
+  ],
+  "extensions": {
+    "com.openai": {
+      "hooks": "./hooks/codex.json",
+      "interface": {
+        "displayName": "Agent Johnny 5",
+        "shortDescription": "Johnny 5 sounds when your agent needs input",
+        "developerName": "Michael J. Mitchell",
+        "category": "Productivity"
+      }
+    }
+  }
+}

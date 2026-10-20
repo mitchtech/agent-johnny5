@@ -1,0 +1,29 @@
+name: Bug report
+description: Report a sound, pet, installation, or preview problem.
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [Sounds, Pet, Installation, Website]
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment and versions
+      description: Agent or host, operating system, terminal if relevant, and Agent Johnny 5 version.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: What happened?
+      description: Describe the steps, expected behavior, and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Optional doctor or pet status output. Remove private paths and never include credentials or transcripts.

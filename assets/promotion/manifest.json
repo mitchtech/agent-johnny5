@@ -1,0 +1,87 @@
+{
+  "kind": "illustrated-previews",
+  "dimensions": [
+    1080,
+    1080
+  ],
+  "fps": 15,
+  "sources": [
+    {
+      "path": "audio/alive.wav",
+      "bytes": 340694,
+      "sha256": "ac48615dc725b726d569f673b6fe6943207d678a5368c96ec78586818d1e8e4b"
+    },
+    {
+      "path": "audio/more-input.wav",
+      "bytes": 72008,
+      "sha256": "66fe3f624bd1ae5fae01cacd9adda8d294dde7d322a2bcfd2293309f97dc840b"
+    },
+    {
+      "path": "audio/need-input.wav",
+      "bytes": 69154,
+      "sha256": "7c6bba979a856388cc96650c2b7c2ea1ffab6c5ee6c23cd2819e2c1e01605217"
+    },
+    {
+      "path": "audio/no-disassemble-five.wav",
+      "bytes": 156754,
+      "sha256": "08210a0bfc6cd80abf93957ed247982cf35f72ad9f5b554d632c5ef2baf4a7df"
+    },
+    {
+      "path": "site/fonts/chakra-petch-latin-700-normal.woff2",
+      "bytes": 9900,
+      "sha256": "ce5095dc1cb200aaa939e38067a0677018d10e9f26ec38cdcf1557ac524fc775"
+    },
+    {
+      "path": "site/fonts/ibm-plex-sans-latin-400-normal.woff2",
+      "bytes": 22588,
+      "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e"
+    },
+    {
+      "path": "site/fonts/share-tech-mono-latin-400-normal.woff2",
+      "bytes": 13500,
+      "sha256": "41e6b9f297f7d9a2df2aaa274092f76d2f72711a15ca455f7f4f4f92caf16b72"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "assets/promotion/attention-preview.mp4",
+      "bytes": 133383,
+      "sha256": "8658b87a5870588cfe1552326e670cf4ab0f13304e0ce04ddce8d28619d0d472"
+    },
+    {
+      "path": "assets/promotion/attention-preview.png",
+      "bytes": 44110,
+      "sha256": "93153eb8b049882d0b4a63ae0d83416c68ee1bc7e0302774f1d180fb9dd47f37"
+    },
+    {
+      "path": "assets/promotion/attention-preview.srt",
+      "bytes": 313,
+      "sha256": "cc7c21ded518f59ef565a4fbf67344280a17bb62b4b7b11685e78c19f0ba44ea"
+    },
+    {
+      "path": "assets/promotion/sound-preview.mp4",
+      "bytes": 520059,
+      "sha256": "dec0e801a1af4543df36a1eddb2cc90b8dbebe14df64dec02d3abe27436acebc"
+    },
+    {
+      "path": "assets/promotion/sound-preview.png",
+      "bytes": 57963,
+      "sha256": "ffffc904a67c5a7bf5af9d657c14f4b96ebc592799799e3345884f5ae5e440a2"
+    },
+    {
+      "path": "assets/promotion/sound-preview.srt",
+      "bytes": 657,
+      "sha256": "0a4ea6c30d5bc9b619a8341f9200a5763f481cd947c334ea01ec53c6d123bded"
+    }
+  ],
+  "tools": {
+    "Pillow": "12.3.0",
+    "ffmpeg": "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+  },
+  "credentials_used": [],
+  "limitations": [
+    "Not a live host or physical audio recording.",
+    "No claim of hook execution in these videos.",
+    "Audio is assembled from the bundled, separately noticed Short Circuit clips."
+  ]
+}

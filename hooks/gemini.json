@@ -1,0 +1,94 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-johnny5-sessionstart",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_JOHNNY5_PLUGIN_ROOT,'scripts','johnny5.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_JOHNNY5_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "BeforeAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-johnny5-beforeagent",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_JOHNNY5_PLUGIN_ROOT,'scripts','johnny5.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_JOHNNY5_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-johnny5-afteragent",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_JOHNNY5_PLUGIN_ROOT,'scripts','johnny5.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_JOHNNY5_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-johnny5-notification",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_JOHNNY5_PLUGIN_ROOT,'scripts','johnny5.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_JOHNNY5_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "PreCompress": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-johnny5-precompress",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_JOHNNY5_PLUGIN_ROOT,'scripts','johnny5.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_JOHNNY5_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-johnny5-sessionend",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_JOHNNY5_PLUGIN_ROOT,'scripts','johnny5.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_JOHNNY5_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ]
+  }
+}

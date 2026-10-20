@@ -1,0 +1,12 @@
+1
+00:00:00,000 --> 00:00:05,000
+Keep the useful cues
+Use the attention preset
+Configuration preview - event coverage varies by host
+
+2
+00:00:05,000 --> 00:00:12,000
+Less prompt chatter
+Approval, question, and ready cues stay on
+where your host supports them.
+Configuration preview - event coverage varies by host

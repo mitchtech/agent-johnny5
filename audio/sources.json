@@ -1,0 +1,241 @@
+{
+  "description": "Provenance and processing for the bundled clips. The committed WAV files are canonical; scripts/build-audio.py rebuilds them from these sources.",
+  "format": {
+    "sampleRate": 32000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "loudness": -16
+  },
+  "clips": [
+    {
+      "id": "alive",
+      "line": "Number five is alive!",
+      "sources": [
+        {
+          "url": "https://www.101soundboards.com/storage/sounds_rendered/aonximxslbqrplng-number-five-is-alive.mp3",
+          "sha256": "3ab7d1620bbcdc4b4c8e81e5fc083c2c72658f812a1a18bfc72366235d8c4d6c",
+          "start": 0.6,
+          "end": 5.95
+        }
+      ],
+      "output": "ac48615dc725b726d569f673b6fe6943207d678a5368c96ec78586818d1e8e4b"
+    },
+    {
+      "id": "hi",
+      "line": "Hi",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/hi.mp3",
+          "sha256": "41fad9c43f83cf24960f184a550959c0126e2daac2299a8e7a1035b15081dcf5"
+        }
+      ],
+      "output": "91dc9adebdd3b981ca8296828b441aa6de05a180011a98013ddb3fba7967b0fb"
+    },
+    {
+      "id": "input",
+      "line": "Input!",
+      "sources": [
+        {
+          "url": "https://www.101soundboards.com/storage/sounds_rendered/msw4wxdkl0ybq6k1-input.mp3",
+          "sha256": "b91a5d4e462fb9c5c5b3659efb9db9e5100e794ab4e1442f453f3ea7e8e88daa",
+          "start": 0.95,
+          "end": 2.1
+        }
+      ],
+      "output": "3d2c258f1491efe731a1a12f348640ebcd68ba571b5c648291d6195d6ab23a9f"
+    },
+    {
+      "id": "yup",
+      "line": "Yup",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/yup.mp3",
+          "sha256": "96e48b58087aa9c71cd22abe81c49a10725129d765ea8a28432b8afc9a9d9331"
+        }
+      ],
+      "output": "0a2f6bf4a4cc4121b5ec37a051348b3dc3f30a09fa0f8d1d3ace071f79a81673"
+    },
+    {
+      "id": "gotit",
+      "line": "You got it",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/you-got-it.mp3",
+          "sha256": "7aabf400efc47c9295aaff45d9fab550763741682b2c1e0f2d64ecf903a70177"
+        }
+      ],
+      "output": "68cba04e80b4d62b1019be59d8e2a3e6a26a29f3921a621de2543aa6b8b8062b"
+    },
+    {
+      "id": "need-input",
+      "line": "Need input",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/need-input.mp3",
+          "sha256": "dc0cd034a31599034b731a330d965d4cf9952438c78be0def398d1c3a826e4c8"
+        }
+      ],
+      "output": "7c6bba979a856388cc96650c2b7c2ea1ffab6c5ee6c23cd2819e2c1e01605217"
+    },
+    {
+      "id": "more-input",
+      "line": "More input",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/more-input.mp3",
+          "sha256": "d90568e238953a39569aa19d12680f29f9b6a9863951737cfe4c85cd44e56262"
+        }
+      ],
+      "output": "66fe3f624bd1ae5fae01cacd9adda8d294dde7d322a2bcfd2293309f97dc840b"
+    },
+    {
+      "id": "questions",
+      "line": "I have questions",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/i-have-questions.mp3",
+          "sha256": "c695d916a03a829ecd3cd54ab434621f92bcc1d6ae2dbf04175d0b0d8a7c7840"
+        }
+      ],
+      "output": "53a2f3542e243e32dd19589958cdf5bcf810209168091eed187c9532b17b721a"
+    },
+    {
+      "id": "no-disassemble-q",
+      "line": "No disassemble?",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/no-disassemble-q.mp3",
+          "sha256": "9f629e1052835bef3baef11dcbef7e19eff44fe5f5678cb26acdcb4c97a369dd"
+        }
+      ],
+      "output": "327362b1c9198d9477679fde4748b710f933b890546a523ff602240afebd4142"
+    },
+    {
+      "id": "no-disassemble-five",
+      "line": "No disassemble, Number Five!",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/no-disassemble-number-five.mp3",
+          "sha256": "fc22a92ca695841aa09e9f5b6663ab06baffd3ace94d3feb2bfe27896265c526"
+        }
+      ],
+      "output": "08210a0bfc6cd80abf93957ed247982cf35f72ad9f5b554d632c5ef2baf4a7df"
+    },
+    {
+      "id": "malfunction",
+      "line": "Malfunction",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/malfunction.mp3",
+          "sha256": "06f42f6462efadcc6184efcba3d1773d4dcaf77debca1c19d01d0ef2584986d0"
+        }
+      ],
+      "output": "ef1727b4259a4468e43f69c7b0a5a307c476966ed90a52d9a5a9c8db51523bfe"
+    },
+    {
+      "id": "error",
+      "line": "Error",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/error.mp3",
+          "sha256": "faf6e61f6c55cc05260bcbd4d43cf8ece72c581bc58bd75f9f2854482626841a"
+        }
+      ],
+      "output": "491f03de2b0e7238e11e644f45fb0b56725706d203c04d01c6e5be5233f4bbc2"
+    },
+    {
+      "id": "uh-oh",
+      "line": "Uh oh",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/uh-oh.mp3",
+          "sha256": "04db78fedecd177ebba2b6e7cb675766ccae92debf2f624083ba3f2d9681bda5"
+        }
+      ],
+      "output": "48b69083db3775891c5280c1f6c45511f5c22cb33bc619ce3410720757bcc1be"
+    },
+    {
+      "id": "excellent",
+      "line": "Excellent",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/excelent.mp3",
+          "sha256": "6cc65e6a0037028ee98e643a7825d3e31fdaa2f5d147f2cf1f75f1b3dfcfb61d"
+        }
+      ],
+      "output": "c2ae85ee58f2cb3e4e880676469954da630139c5bd621dd8776a87443846b097"
+    },
+    {
+      "id": "pretty-good",
+      "line": "Pretty good",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/pretty-good.mp3",
+          "sha256": "58d15bcfdd9ddbc2221a22945f3f445a13a478398eb1674ec354d8bf79642f24"
+        }
+      ],
+      "output": "89cd9686ec3ba62c63fa2c39c953c0e05fffa4017be94b2a39b65c566524c7a9"
+    },
+    {
+      "id": "reassemble",
+      "line": "Reassemble",
+      "sources": [
+        {
+          "url": "https://www.101soundboards.com/storage/sounds_rendered/oem3ubv6l2pheckj-reassemble.mp3",
+          "sha256": "2cc7d54f4c33f212db6f40caf67829e75e0fdb33eaf950ee5c4ddbf589cd7624",
+          "start": 0.0,
+          "end": 1.4
+        }
+      ],
+      "output": "3afa33f1e03faa1fea927dfa5b8e617ea95e8d7794e2ed510a83327cc672cc46"
+    },
+    {
+      "id": "times-up",
+      "line": "Time's up",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/times-up.mp3",
+          "sha256": "1123596b9c92448f1d017b2d20fbb8a361429b13be2c6e916cb8b0243edc17e8"
+        }
+      ],
+      "output": "3d962bfc1a27040bff711638332efd994b9edf2db02e45abdd518cd20eee81fe"
+    },
+    {
+      "id": "laser-lips",
+      "line": "Hey, laser lips! Your mama was a snow blower!",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/hey-laserlips.mp3",
+          "sha256": "2c6524cefd59fd2fb733073fef78a929cfe3cde573eaeb805bade7afffd254e0"
+        },
+        {
+          "url": "https://johnny5soundboard.com/audio/your-mama.mp3",
+          "sha256": "1460cd9b304d35b4fc6ce25405c2480fc2224869f97c9612c7158131bc055adb"
+        }
+      ],
+      "output": "cdc6721f922247a2b3c0c5eaa2894e6d2e3e0bd0f15a23a9d79bfa14fc542bde"
+    },
+    {
+      "id": "nice-software",
+      "line": "Nice software",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/nice-software.mp3",
+          "sha256": "81686e09bc194ed1e075be82402254ffa68941cd0cb406817d9d5d9f36c2eecd"
+        }
+      ],
+      "output": "0c0ba822227d50b35778f322a91cd319fdcc06366f05b5345e31bed0cb566911"
+    },
+    {
+      "id": "attractive",
+      "line": "Attractive",
+      "sources": [
+        {
+          "url": "https://johnny5soundboard.com/audio/attractive.mp3",
+          "sha256": "d92694935d080bbcfe1771251713eb9017ae69ba112b03577c8d5830a3ba31a7"
+        }
+      ],
+      "output": "8186dea505b9c6eb0c20f9c2b3e26383c104efb654fb92ba729beb6d62b9639c"
+    }
+  ]
+}

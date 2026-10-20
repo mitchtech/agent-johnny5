@@ -1,0 +1,7 @@
+{
+  "id": "johnny5",
+  "displayName": "Johnny 5",
+  "description": "A tracked NOVA Robotics prototype with binocular optics and expressive brow shutters.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

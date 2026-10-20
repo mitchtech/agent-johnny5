@@ -1,0 +1,15 @@
+{
+  "name": "agent-johnny5",
+  "description": "Johnny 5 sound notifications for coding agents: Need input!",
+  "owner": {
+    "name": "mitchtech",
+    "url": "https://github.com/mitchtech"
+  },
+  "plugins": [
+    {
+      "name": "johnny5",
+      "source": "./",
+      "description": "Johnny 5 sound notifications for coding agents: Need input!"
+    }
+  ]
+}

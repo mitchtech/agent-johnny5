@@ -1,0 +1,8 @@
+* text=auto eol=lf
+pets/johnny5/pet.json -text
+*.webp binary
+*.gif binary
+*.png binary
+*.wav binary
+*.mp4 binary
+*.woff2 binary

@@ -15,7 +15,8 @@
   <a href="https://mitchtech.github.io/agent-johnny5/"><b>Hear every clip</b></a> ·
   <a href="#sounds">Event map</a> ·
   <a href="https://github.com/mitchtech/agent-johnny5/releases">Releases</a> ·
-  <a href="https://github.com/mitchtech/agent-navi">Sibling: Agent Navi</a>
+  <a href="https://github.com/mitchtech/agent-navi">Sibling: Agent Navi</a> ·
+  <a href="https://github.com/mitchtech/agent-warcraft">Sibling: Agent Warcraft</a>
 </p>
 
 <table align="center">
@@ -36,7 +37,7 @@ Agent Johnny 5 plays 20 lines from *Short Circuit* (1986): "Number five is
 alive!" when a session starts, "Need input!" when an approval is waiting, and
 "No disassemble, Number Five!" when that approval is for `rm -rf`, a force push,
 or a dropped table. It runs locally, sends no telemetry, and never approves or
-blocks an agent's actions. A sibling of [Agent Navi](https://github.com/mitchtech/agent-navi),
+blocks an agent's actions. A sibling of [Agent Navi](https://github.com/mitchtech/agent-navi) and [Agent Warcraft](https://github.com/mitchtech/agent-warcraft),
 inspired by [thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
 
 ## Choose your setup
@@ -102,10 +103,10 @@ hook file is included in the generated extension, not the source root. Install
 published release assets rather than linking the repository root or a raw Git
 branch. See [Gemini integration](docs/gemini.md).
 
-### Running alongside Agent Navi
+### Running alongside Agent Navi or Agent Warcraft
 
-Both plugins respond to the same events. Disable one per host unless you want
-a fairy and a robot talking over each other: `claude plugin disable navi@agent-navi`
+All three plugins respond to the same events. Enable one per host unless you
+want a fairy, a robot, and a peon talking over each other: `claude plugin disable navi@agent-navi`
 for Claude Code, or `enabled = false` under `[plugins."navi@agent-navi"]` in
 `~/.codex/config.toml` for Codex.
 
@@ -325,7 +326,7 @@ the project workflow.
 - Author: [Michael J. Mitchell / mitchtech](https://github.com/mitchtech).
 - Johnny 5, *Short Circuit* (1986): TriStar Pictures. Voice of Johnny 5: Tim Blaney.
 - Clip sources: johnny5soundboard.com and the 101soundboards *Short Circuit* board.
-- Sibling project: [Agent Navi](https://github.com/mitchtech/agent-navi).
+- Sibling projects: [Agent Navi](https://github.com/mitchtech/agent-navi) and [Agent Warcraft](https://github.com/mitchtech/agent-warcraft).
 - Original plugin inspiration: [thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
 
 Code and configuration: [MIT](LICENSE). Bundled audio is excluded from the MIT

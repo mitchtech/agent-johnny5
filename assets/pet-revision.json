@@ -1,0 +1,14 @@
+{
+  "method": "Pillow lossless PNG-to-WebP encoding with exact RGBA preservation; no visual changes",
+  "source": {
+    "file": "assets/original/johnny5/spritesheet.png",
+    "sha256": "0862fae88ceec2312a09fa1b4f0fa05b3a5509317d69568193c4bc8d85299a24"
+  },
+  "active": {
+    "pet.json": "55eed2365ccb0f4119cc03df47f854c2d17aa801c9b1f8f44b09bcedc159b945",
+    "spritesheet.webp": "e33c50c6c33252c9368c78a0c75f3a377e904918943e34afd80c80aeb8bc359b"
+  },
+  "decodedPixelsIdentical": true,
+  "occupiedCells": 73,
+  "transparentCells": 15
+}

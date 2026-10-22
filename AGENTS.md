@@ -6,7 +6,7 @@
 - Keep host registrations separate. Only the generated Gemini extension gets `hooks/hooks.json`; the source package must not contain that default hook file.
 - Sounds and pets install independently. Never change host pet selection. Preserve conflicting or unmanaged pet files and create backups before explicit replacement.
 - The committed WAV files are canonical. Change audio only through `audio/sources.json` and `scripts/build-audio.py`, and commit each WAV with its updated manifest entry. Destructive-command detection must never log, persist, or forward the command.
-- The pet ships as a manifest-only stub. Adding art must not require code changes; keep the not-bundled path tested.
+- The pet artwork is a data bundle. Adding or replacing art must not require runtime code changes; keep the not-bundled path tested.
 - Use `package.json` as the version authority. All host manifests must match it; sprite format version is independent.
 - Skills must include natural-language `TRIGGER when:` and `DO NOT TRIGGER when:` descriptions and `disable-model-invocation: false`.
 - Use US English and regular hyphens. Keep edits within the requested scope.

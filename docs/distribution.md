@@ -41,8 +41,8 @@ python3 scripts/package-release.py
 ```
 
 Release assets include the versioned npm tarball, a stable `agent-johnny5.tgz`
-alias, and three identically encoded platform-prefixed Gemini ZIPs. Once pet art
-is bundled, the versioned and stable pet ZIPs join them automatically.
+alias, three identically encoded platform-prefixed Gemini ZIPs, and versioned
+and stable pet ZIPs containing the bundled artwork.
 `SHA256SUMS` covers every attached artifact. ZIP order, timestamps, permissions,
 and extracted source bytes are checked.
 

@@ -1,0 +1,13 @@
+Johnny 5 pet sprite artwork
+Contributor: Michael J. Mitchell (mitchtech)
+Source: https://github.com/mitchtech/agent-johnny5/tree/main/pets/johnny5
+
+The contributor's rights in this sprite artwork are licensed under Creative
+Commons Attribution 4.0 International (CC BY 4.0).
+
+License terms: https://creativecommons.org/licenses/by/4.0/legalcode
+License summary: https://creativecommons.org/licenses/by/4.0/
+
+Reuse requires appropriate credit, a license link, and an indication of changes.
+This license does not grant rights to third-party character IP, trademarks,
+or the film audio recordings distributed separately in this repository.

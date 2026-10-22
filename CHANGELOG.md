@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Bundle the Johnny 5 v2 pet with nine animations and sixteen look directions, an artwork license and provenance, and a lossless WebP that preserves every original PNG pixel.
+- Preserve the original PNG under `assets/original/johnny5` and exercise real-art installation while retaining manifest-only package coverage.
+
 ## 0.1.0 - 2026-10-19
 
 First release, built on the Agent Navi v0.4.0 runtime.

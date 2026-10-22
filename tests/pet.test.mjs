@@ -18,7 +18,7 @@ function fixture(t) {
   return { root, env, target: petPath(env) };
 }
 
-// The repository ships no pet art yet, so installer behavior is exercised against a package copy with fixture art.
+// Small fixtures isolate conflict and missing-art behavior from the real bundle.
 async function packaged(root, files = ['pet.json', 'spritesheet.webp', 'LICENSE.txt', 'NOTICE.md']) {
   const copy = join(root, 'package');
   mkdirSync(join(copy, 'scripts'), { recursive: true });
@@ -29,23 +29,25 @@ async function packaged(root, files = ['pet.json', 'spritesheet.webp', 'LICENSE.
   return { ...module, bundle: join(copy, 'pets', 'johnny5'), script: join(copy, 'scripts', 'johnny5.mjs') };
 }
 
-test('the repository pet is a stub: status reports not-bundled and install changes nothing', t => {
-  const { env, target } = fixture(t);
-  assert.equal(petStatus(env).state, 'not-bundled');
-  assert.throws(() => installPet(env), /not bundled yet/);
+test('a manifest-only package reports not-bundled and install changes nothing', async t => {
+  const { root, env, target } = fixture(t);
+  const pet = await packaged(root, ['pet.json']);
+  assert.equal(pet.petStatus(env).state, 'not-bundled');
+  assert.throws(() => pet.installPet(env), /not bundled yet/);
   assert.equal(existsSync(target), false);
-  assert.equal(uninstallPet(env).changed, false);
+  assert.equal(pet.uninstallPet(env).changed, false);
   mkdirSync(target, { recursive: true });
   writeFileSync(join(target, 'personal.txt'), 'keep');
-  assert.equal(petStatus(env).state, 'not-bundled');
-  assert.throws(() => installPet(env, true), /not bundled yet/);
-  assert.throws(() => uninstallPet(env), /unmanaged/);
+  assert.equal(pet.petStatus(env).state, 'not-bundled');
+  assert.throws(() => pet.installPet(env, true), /not bundled yet/);
+  assert.throws(() => pet.uninstallPet(env), /unmanaged/);
   assert.deepEqual(readdirSync(target), ['personal.txt']);
 });
 
-test('the stub pet CLI explains how to get a pet without failing status checks', t => {
-  const { env } = fixture(t);
-  const run = args => spawnSync(process.execPath, [SCRIPT, ...args], { env, encoding: 'utf8', timeout: 5000 });
+test('the stub pet CLI explains how to get a pet without failing status checks', async t => {
+  const { root, env } = fixture(t);
+  const pet = await packaged(root, ['pet.json']);
+  const run = args => spawnSync(process.execPath, [pet.script, ...args], { env, encoding: 'utf8', timeout: 5000 });
   const status = run(['pet', 'status']);
   assert.equal(status.status, 0);
   assert.match(status.stdout, /not-bundled/);
@@ -60,10 +62,25 @@ test('a managed copy installed from a release with art can be removed after the 
   const { root, env, target } = fixture(t);
   const pet = await packaged(root);
   pet.installPet(env);
-  assert.equal(petStatus(env).state, 'not-bundled');
-  assert.equal(petStatus(env).managed, true);
-  assert.equal(uninstallPet(env).changed, true);
+  rmSync(join(pet.bundle, 'spritesheet.webp'));
+  assert.equal(pet.petStatus(env).state, 'not-bundled');
+  assert.equal(pet.petStatus(env).managed, true);
+  assert.equal(pet.uninstallPet(env).changed, true);
   assert.equal(existsSync(target), false);
+});
+
+test('the real bundled artwork installs byte-for-byte and passes pet diagnostics', t => {
+  const { env, target } = fixture(t);
+  assert.equal(petStatus(env).state, 'not-installed');
+  assert.equal(installPet(env).changed, true);
+  for (const name of ['pet.json', 'spritesheet.webp', 'LICENSE.txt', 'NOTICE.md']) {
+    assert.deepEqual(readFileSync(join(target, name)), readFileSync(join(ROOT, 'pets', 'johnny5', name)));
+  }
+  const doctor = spawnSync(process.execPath, [SCRIPT, 'doctor', '--pet'], { env, encoding: 'utf8', timeout: 5000 });
+  assert.equal(doctor.status, 0, doctor.stderr);
+  assert.equal(petStatus(env).state, 'matching');
+  assert.equal(installPet(env).changed, false);
+  assert.equal(uninstallPet(env).changed, true);
 });
 
 test('pet installation is independent, identical, repeatable, and removable', async t => {

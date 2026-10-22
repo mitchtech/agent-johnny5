@@ -44,7 +44,7 @@ inspired by [thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
 | Choice | Install | Requirements |
 |---|---|---|
 | Sounds | [Agent plugin](#install) or standalone CLI | Node.js 22+ and local audio |
-| Codex pet | [Coming soon](#codex-pet-coming-soon) | A host with compatible custom pets |
+| Codex pet | [Pet bundle](#codex-pet) | A host with compatible custom pets |
 
 Installing the sound plugin never installs or selects a pet.
 
@@ -136,13 +136,20 @@ All commands also work as `node /path/to/agent-johnny5/scripts/johnny5.mjs ...`.
 Standalone `play` and `preview` wait for the short clip; native hooks dispatch
 playback to a detached worker so the agent can continue immediately.
 
-## Codex pet (coming soon)
+## Codex pet
 
-The Johnny 5 Codex pet is not bundled yet. The installer, validation, and
-release packaging are in place, so the pet will arrive in a release without
-changing how anything else works. Until then, `agent-johnny5 pet status`
-reports `not-bundled` and `agent-johnny5 pet install` changes nothing. Codex's
-native pet feature can create a companion in the meantime. See [pets](docs/pets.md).
+The bundled Johnny 5 pet has nine animations and sixteen look directions,
+with binocular optics, expressive brow shutters, and tank treads. Install it
+independently from the sounds. From a source checkout:
+
+```bash
+node scripts/johnny5.mjs pet install
+node scripts/johnny5.mjs doctor --pet
+```
+
+Pet-enabled releases also include a standalone ZIP. Installation copies the
+local bundle; choose Johnny 5 in your host's pet picker afterward. See
+[installation, compatibility, and artwork provenance](docs/pets.md).
 
 ## Sounds
 

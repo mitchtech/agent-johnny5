@@ -109,6 +109,17 @@ machine running the hook. Already running Agent Navi? Disable one per host.
 
 https://github.com/mitchtech/agent-johnny5#install
 
+## X5 - Codex pet
+
+Johnny 5 is now a Codex pet.
+
+Nine animations, sixteen look directions, tank treads. Codex animates him from
+what your agent is doing. Installs on its own: no sounds required.
+
+Clip: atlas preview. Drive every animation yourself:
+
+https://mitchtech.github.io/agent-johnny5/#pet
+
 ## L1 - LinkedIn maker introduction
 
 I built Agent Johnny 5, a small sound-notification plugin for Claude Code,
@@ -166,6 +177,10 @@ trust notes are in the README."
 Alarm as safety: "It is only a louder sound. It never blocks anything, and an
 indirect or obfuscated command gets the ordinary cue. Keep your normal
 permission settings."
+
+Pet interest: "Grab agent-johnny5-pet.zip from the latest release, extract the
+johnny5 folder into ~/.codex/pets/, and pick Johnny 5. It works without the
+sound plugin. Which host are you using?"
 
 When someone has found it useful: "A GitHub star helps other people find it if
 you'd like to support the project." Do not ask for Reddit votes or coordinated

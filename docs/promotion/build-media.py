@@ -1,7 +1,8 @@
-"""Build labeled promotional previews from the committed clips, not host recordings."""
+"""Build labeled promotional previews from the committed clips and pet atlas, not host recordings."""
 
 import hashlib
 import json
+import shutil
 import subprocess
 import wave
 from array import array
@@ -20,6 +21,10 @@ FONTS = ROOT / "site" / "fonts"
 TITLE = FONTS / "chakra-petch-latin-700-normal.woff2"
 BODY = FONTS / "ibm-plex-sans-latin-400-normal.woff2"
 MONO = FONTS / "share-tech-mono-latin-400-normal.woff2"
+ATLAS = ROOT / "pets" / "johnny5" / "spritesheet.webp"
+SHEET = Image.open(ATLAS).convert("RGBA")
+# Atlas rows and frame counts for the host animation states used below.
+STATES = {"idle": (0, 6), "waving": (3, 4), "failure": (5, 8), "waiting": (6, 6), "working": (7, 6), "review": (8, 6)}
 
 
 def samples(clip):
@@ -72,9 +77,16 @@ def card(title, subtitle, footer, command=None):
     return image
 
 
-def scope(values, reveal):
-    """A 720 x 360 CRT with the waveform swept in up to `reveal` (0-1)."""
-    width, height = 720, 360
+def robot(state, second, scale):
+    """The state's animation frame at `second`, scaled; frames advance every 160 ms like the host."""
+    row, count = STATES[state]
+    column = int(second / 0.16) % count
+    cell = SHEET.crop((column * 192, row * 208, (column + 1) * 192, (row + 1) * 208))
+    return cell.resize((round(192 * scale), round(208 * scale)), Image.Resampling.LANCZOS)
+
+
+def scope(values, reveal, width=720, height=360):
+    """A width x height CRT with the waveform swept in up to `reveal` (0-1)."""
     screen = Image.new("RGBA", (width, height), CRT + (255,))
     draw = ImageDraw.Draw(screen)
     for i in range(1, 10):
@@ -99,17 +111,23 @@ def scope(values, reveal):
     return screen
 
 
-# (start, end, title, subtitle, command, cue clip or None)
+# (start, end, title, subtitle, command, cue clip or None, pet state)
 sound_scenes = [
-    (0, 6, "Session started", '"Number five is alive!"', None, "alive"),
-    (6, 10, "Approval needed", '"Need input"', None, "need-input"),
-    (10, 15, "Destructive command", '"No disassemble, Number Five!"', "$ rm -rf ./build", "no-disassemble-five"),
-    (15, 19, "Ready for input", '"More input"', None, "more-input"),
-    (19, 24, "Need input.", "Local audio. No telemetry.\nNever approves or blocks anything.", None, None),
+    (0, 6, "Session started", '"Number five is alive!"', None, "alive", "waving"),
+    (6, 10, "Approval needed", '"Need input"', None, "need-input", "waiting"),
+    (10, 15, "Destructive command", '"No disassemble, Number Five!"', "$ rm -rf ./build", "no-disassemble-five", "failure"),
+    (15, 19, "Ready for input", '"More input"', None, "more-input", "idle"),
+    (19, 24, "Need input.", "Local audio. No telemetry. Never blocks anything.\nOptional Codex pet installs separately.", None, None, "idle"),
 ]
 attention_scenes = [
-    (0, 5, "Keep the useful cues", "Use the attention preset", "agent-johnny5 preset attention", None),
-    (5, 12, "Less prompt chatter", "Approval, question, and ready cues stay on\nwhere your host supports them.", "agent-johnny5 preset attention", "need-input"),
+    (0, 5, "Keep the useful cues", "Use the attention preset", "agent-johnny5 preset attention", None, "idle"),
+    (5, 12, "Less prompt chatter", "Approval, question, and ready cues stay on\nwhere your host supports them.", "agent-johnny5 preset attention", "need-input", "waiting"),
+]
+pet_scenes = [
+    (0, 4, "Codex companion", "Independent pet. Sounds not required.", "state: idle", None, "idle"),
+    (4, 8, "Host animated", "Compatible Codex hosts drive activity.", "state: working", None, "working"),
+    (8, 12, "Nine animations", "Sixteen look directions. Tank treads.", "state: review", None, "review"),
+    (12, 16, "Your choice", "Download the ZIP. Choose Johnny 5 yourself.", "state: waving", None, "waving"),
 ]
 CUE_OFFSET = 0.5
 
@@ -124,23 +142,30 @@ def build(name, scenes, footer):
                "-framerate", str(FPS), "-i", "pipe:0",
                "-frames:v", str(duration * FPS), "-c:v", "libx264", "-threads", "2",
                "-preset", "fast", "-crf", "26", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(video)]
-    cards = [card(title, subtitle, footer, cmd) for _, _, title, subtitle, cmd, _ in scenes]
-    clips = {clip: samples(clip) for *_, clip in scenes if clip}
+    cards = [card(title, subtitle, footer, cmd) for _, _, title, subtitle, cmd, _, _ in scenes]
+    clips = {scene[5]: samples(scene[5]) for scene in scenes if scene[5]}
+    pet_only = not clips
     waves = {clip: peaks(data, 180) for clip, data in clips.items()}
     process = subprocess.Popen(command, stdin=subprocess.PIPE)
     try:
         for tick in range(duration * FPS):
             second = tick / FPS
             index = next(i for i, scene in enumerate(scenes) if scene[0] <= second < scene[1])
-            start, _, _, _, _, clip = scenes[index]
+            start, _, _, _, _, clip, state = scenes[index]
             image = cards[index].copy()
-            if clip:
-                length = len(clips[clip]) / RATE
-                reveal = min(1.0, max(0.0, (second - start - CUE_OFFSET) / length))
-                screen = scope(waves[clip], reveal)
+            if pet_only:
+                sprite = robot(state, second, 2.0)
+                image.paste(sprite, (540 - sprite.width // 2, 360), sprite)
             else:
-                screen = scope([0.01] * 180, 1.0)
-            image.paste(screen.convert("RGB"), (180, 400))
+                if clip:
+                    length = len(clips[clip]) / RATE
+                    reveal = min(1.0, max(0.0, (second - start - CUE_OFFSET) / length))
+                    screen = scope(waves[clip], reveal, 560, 330)
+                else:
+                    screen = scope([0.01] * 180, 1.0, 560, 330)
+                image.paste(screen.convert("RGB"), (420, 410))
+                sprite = robot(state, second, 1.5)
+                image.paste(sprite, (100, 770 - round(205 * 1.5)), sprite)
             process.stdin.write(image.tobytes())
             if tick == FPS * 3:
                 image.save(OUT / f"{name}.png")
@@ -148,32 +173,37 @@ def build(name, scenes, footer):
         process.stdin.close()
     if process.wait():
         raise RuntimeError(f"ffmpeg failed for {name}")
-    track = bytearray(duration * RATE * 2)
-    for start, _, _, _, _, clip in scenes:
-        if clip:
-            data = little_endian(clips[clip])
-            offset = int((start + CUE_OFFSET) * RATE) * 2
-            track[offset:offset + len(data)] = data
-    audio = temporary / f"{name}.wav"
-    with wave.open(str(audio), "wb") as destination:
-        destination.setparams((1, 2, RATE, 0, "NONE", "not compressed"))
-        destination.writeframes(bytes(track))
-    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video), "-i", str(audio),
-                    "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "128k",
-                    "-t", str(duration), "-movflags", "+faststart", str(OUT / f"{name}.mp4")], check=True)
+    if pet_only:
+        # The pet is independent of the sounds, so its preview has no audio track.
+        shutil.copyfile(video, OUT / f"{name}.mp4")
+    else:
+        track = bytearray(duration * RATE * 2)
+        for start, _, _, _, _, clip, _ in scenes:
+            if clip:
+                data = little_endian(clips[clip])
+                offset = int((start + CUE_OFFSET) * RATE) * 2
+                track[offset:offset + len(data)] = data
+        audio = temporary / f"{name}.wav"
+        with wave.open(str(audio), "wb") as destination:
+            destination.setparams((1, 2, RATE, 0, "NONE", "not compressed"))
+            destination.writeframes(bytes(track))
+        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video), "-i", str(audio),
+                        "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "128k",
+                        "-t", str(duration), "-movflags", "+faststart", str(OUT / f"{name}.mp4")], check=True)
 
     def timestamp(second):
         return f"00:{second // 60:02d}:{second % 60:02d},000"
 
     subtitles = [f"{index}\n{timestamp(start)} --> {timestamp(end)}\n{title}\n{subtitle}\n{footer}\n"
-                 for index, (start, end, title, subtitle, _, _) in enumerate(scenes, 1)]
+                 for index, (start, end, title, subtitle, *_) in enumerate(scenes, 1)]
     (OUT / f"{name}.srt").write_text("\n".join(subtitles))
     return sorted(clips)
 
 
 used = build("sound-preview", sound_scenes, "Illustrated sound preview - not a live host recording")
 used += build("attention-preview", attention_scenes, "Configuration preview - event coverage varies by host")
-sources = [ROOT / f"audio/{clip}.wav" for clip in sorted(set(used))] + [TITLE, BODY, MONO]
+used += build("pet-preview", pet_scenes, "Atlas animation preview - not a native host recording")
+sources = [ROOT / f"audio/{clip}.wav" for clip in sorted(set(used))] + [ATLAS, TITLE, BODY, MONO]
 
 
 def record(path):
@@ -189,8 +219,8 @@ manifest = {
         ["ffmpeg", "-version"], text=True).splitlines()[0]},
     "credentials_used": [],
     "limitations": ["Not a live host or physical audio recording.",
-                     "No claim of hook execution in these videos.",
+                     "No claim of hook execution or native pet rendering in these videos.",
                      "Audio is assembled from the bundled, separately noticed Short Circuit clips."],
 }
 (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-print(f"Built two captioned previews in {OUT.relative_to(ROOT)}")
+print(f"Built three captioned previews in {OUT.relative_to(ROOT)}")

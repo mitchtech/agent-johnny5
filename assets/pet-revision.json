@@ -10,5 +10,9 @@
   },
   "decodedPixelsIdentical": true,
   "occupiedCells": 73,
-  "transparentCells": 15
+  "transparentCells": 15,
+  "web": {
+    "file": "assets/exports/agent-johnny5-pet-web.webp",
+    "sha256": "b733abee032355de83aac7e8388d7c07de763276f17afd26d68bc366391a78eb"
+  }
 }

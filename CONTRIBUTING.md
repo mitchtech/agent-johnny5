@@ -35,7 +35,8 @@ root default hook file to Claude/Codex installations.
 rebuilds). `pets/johnny5` holds the complete pet bundle; `assets/original/johnny5`
 preserves the original PNG. Installer tests cover the real bundle and isolated
 fixtures, including packages without art. `assets/previews` is generated from
-the clips by `scripts/build-assets.py`; keep preview generation reproducible.
+the clips and pet atlas by `scripts/build-assets.py`, and `assets/exports` by
+`scripts/export-pet-web.py`; keep preview generation reproducible.
 
 Release and discovery procedures live in [distribution maintenance](docs/distribution.md).
 The [promotion kit](docs/promotion/README.md) contains public post drafts,

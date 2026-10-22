@@ -3,7 +3,7 @@
 An owner-run, 30-day organic campaign for successful installs, GitHub visibility,
 and recognition of Michael J. Mitchell as the maker. Budget: 3-5 hours per week,
 no ad spend. The destructive-command alarm is the hook; the event map is the
-substance.
+substance. The Codex pet gets its own demonstration and is measured separately.
 
 ## Start here
 
@@ -27,23 +27,27 @@ deferred.
 > Agent Johnny 5 plays Johnny 5's lines from *Short Circuit* when Claude Code,
 > Codex, or Gemini CLI needs you: "Need input" for approvals, "I have questions"
 > for questions, and "No disassemble, Number Five!" when the approval is for
-> `rm -rf` or a force push. Runs locally, with no runtime telemetry.
+> `rm -rf` or a force push. Runs locally, with no runtime telemetry. An optional
+> Codex pet with nine animations installs independently.
 
 Primary audience: developers running local Claude Code or Codex sessions who
 want audible attention cues. Secondary audience: Agent Navi users who want a
-different voice. Gemini support is a supporting fact, not another campaign.
+different voice. Tertiary audience: Codex users who enjoy custom pets. Gemini
+support is a supporting fact, not another campaign.
 
 Use one primary link per post:
 
 - Install: <https://github.com/mitchtech/agent-johnny5#install>
 - Event map: <https://github.com/mitchtech/agent-johnny5#sounds>
 - Interactive preview: <https://mitchtech.github.io/agent-johnny5/>
+- Pet posts: <https://mitchtech.github.io/agent-johnny5/#pet>
 
 Lead with an actual behavior, identify yourself as the maker, state that the
 project is free to try, and invite one specific piece of feedback. Do not imply
 every host has identical events, that the destructive-command cue is a safety
 feature, or that a sound proves the agent completed a task successfully. Avoid
-unmeasured time-saving claims. Do not promise the Codex pet before it ships.
+unmeasured time-saving claims. Do not imply the pet appears in Claude Code or
+Gemini, or that the atlas preview is a native host recording.
 
 ## Publishing calendar
 
@@ -60,6 +64,7 @@ can answer replies for the following hour. The budgets below include replies.
 | Day 16 | Publish R2 in r/codex, with the current appropriate showcase flair | Included below |
 | Day 18 | Publish X2 about the destructive-command alarm | Included below |
 | Day 20 | Publish X3 about the attention preset | Days 15-21: 4 hours |
+| Day 22 | Publish X5 with the pet preview or a verified native pet clip | Included below |
 | Day 25 | Publish X4, a useful install/configuration follow-up | Included below |
 | Day 27 | Publish LinkedIn L2 about the privacy boundary in command detection | Included below |
 | Days 28-30 | Ask willing early users about continued use; write results and select the next channel | Days 22-30: 4 hours |
@@ -115,6 +120,7 @@ approximate attribution, not an install conversion rate.
 | Interest without install reports | Check destination and simplify the setup explanation |
 | Sounds seem too frequent | Demonstrate the attention preset; do not change defaults for marketing |
 | Someone treats the alarm as a safety guarantee | Correct it plainly: it is a cue, not a guard |
+| Pet content attracts interest | Reply with pet-specific installation; count pet installs separately |
 | A channel produces installs or substantive discussion | Give it the next available content slot |
 | Two distinct posts on a channel produce neither | Stop adding posts there during this campaign |
 

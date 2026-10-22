@@ -1,9 +1,14 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 - 2026-10-21
 
-- Bundle the Johnny 5 v2 pet with nine animations and sixteen look directions, an artwork license and provenance, and a lossless WebP that preserves every original PNG pixel.
+The Johnny 5 Codex pet ships.
+
+- Bundle the Johnny 5 v2 pet with nine animations and sixteen look directions, an artwork license and provenance, and a lossless WebP that preserves every original PNG pixel. Releases now attach `agent-johnny5-pet.zip`.
 - Preserve the original PNG under `assets/original/johnny5` and exercise real-art installation while retaining manifest-only package coverage.
+- Add a nine-row `agent-johnny5-pet-web.webp` for ChatGPT account pet uploads, derived by `scripts/export-pet-web.py` and checked against the active atlas.
+- Showcase the pet on the site: the hero robot reacts to each clip, and a pet section previews every animation and look direction with ZIP, CLI, and web-atlas install paths. Add a native-pet column to the compatibility table, structured data, and refreshed sharing metadata.
+- Add pet animation GIFs to the README, put the robot on the banner and social card, and add a captioned `pet-preview.mp4`. The sound and attention previews now show the robot reacting to each cue.
 
 ## 0.1.0 - 2026-10-19
 

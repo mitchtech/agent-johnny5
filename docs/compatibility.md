@@ -86,24 +86,26 @@ audio to your local speakers. This plugin does not deploy a relay or service.
 ## Native pet compatibility
 
 Sounds and pets install independently. The `johnny5` plugin registers sound
-hooks only. The Johnny 5 pet is not bundled yet; when it ships, the pet CLI or
-ZIP will install a local custom pet without hook registration or avatar
-selection changes, and the host will drive its activity and animation.
+hooks only. The pet ZIP or `agent-johnny5 pet install` places a local custom pet
+without hook registration or avatar selection changes, and the host drives its
+activity and animation.
 
 | Surface | Sounds | Native pet |
 |---|---|---|
 | Claude Code | Native hooks | No integration provided |
 | Gemini CLI | Native extension | No integration provided |
-| Codex desktop | With trusted hooks | Custom pet picker, once the pet ships |
-| Codex CLI | Native hooks | Graphics-capable terminal required, once the pet ships |
+| Codex desktop | With trusted hooks | Custom pet picker |
+| Codex CLI | Native hooks | Graphics-capable terminal required (iTerm2 3.6+, Kitty, or Sixel; not in tmux or Zellij) |
 | Codex IDE extension | Depends on host hook support | No picker or overlay |
+| ChatGPT web | Not applicable | Separate account upload of the nine-row web atlas |
 | Other agents and scripts | Generic event interface | Depends on host; no adapter provided |
 | Headless or remote environments | Requires local audio access | No local display is implied |
 
-Asset validation checks the manifest now and the atlas format, transparency,
-and cell occupancy once art exists. Installer tests run against a fixture
-bundle and check filesystem behavior rather than native rendering on every OS.
-See [pets](pets.md).
+Asset validation checks the manifest, atlas format, transparency, cell
+occupancy, and the web atlas. Installer tests run against the real bundle and
+small fixtures and check filesystem behavior rather than native rendering on
+every OS. Native desktop and terminal rendering of this bundle have not been
+independently recorded. See [pets](pets.md).
 
 ## Validation and support baseline
 

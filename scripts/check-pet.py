@@ -48,8 +48,12 @@ def validate():
     data = image.tobytes()
     if any(data[i + 3] == 0 and any(data[i:i + 3]) for i in range(0, len(data), 4)):
         raise ValueError("Transparent pixels contain RGB residue")
+    web = ROOT / "assets" / "exports" / "agent-johnny5-pet-web.webp"
+    with Image.open(web) as export:
+        if export.format != "WEBP" or export.size != (1536, 1872) or export.convert("RGBA").tobytes() != image.crop((0, 0, 1536, 1872)).tobytes():
+            raise ValueError("Web export is stale; run python3 scripts/export-pet-web.py")
     return {"bundled": True, "format": "v2", "width": image.width, "height": image.height,
-            "occupiedCells": occupied, "transparentCells": empty}
+            "occupiedCells": occupied, "transparentCells": empty, "webExport": "matching"}
 
 
 if __name__ == "__main__":

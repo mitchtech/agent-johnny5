@@ -52,9 +52,20 @@ the execution environment and speakers are on different machines.
 error mappings that Codex and Gemini lack. Completion is optional, not a task
 success detector. See [compatibility](../compatibility.md).
 
-**Is there a Codex pet?** Not yet. The installer and packaging are ready, and
-the art will arrive in a release. Until then, Codex's native pet feature can
-make a companion. See [pets](../pets.md).
+**Is there a Codex pet?** Yes, since v0.2.0. Johnny 5 has nine animations and
+sixteen look directions. Download `agent-johnny5-pet.zip` from the latest
+release, extract the `johnny5` folder into `~/.codex/pets/`, and choose Johnny 5
+in the pet picker (or `/pets Johnny 5` in a graphics-capable Codex CLI terminal).
+It installs independently of the sounds. See [pets](../pets.md).
+
+**Does the pet work in Claude Code or Gemini?** No. Those hosts get the sounds;
+native pets are a Codex feature. For a ChatGPT account pet, upload the separate
+nine-row web atlas described in [pets](../pets.md#web-upload).
+
+**Who made the pet art, and can I reuse it?** Michael created it with Codex's
+built-in image generation; it was not extracted from film frames. The
+contributor's rights are licensed CC BY 4.0, and character rights remain with
+their owners. See the [artwork notice](../../pets/johnny5/NOTICE.md).
 
 **Is this official Short Circuit software?** No. Character rights and trademarks
 remain with their owners. Code and configuration use MIT; the bundled audio is

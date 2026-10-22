@@ -2,21 +2,25 @@
 
 ## Available previews
 
-These assets are illustrated previews assembled from the bundled WAV files and
-the site's fonts. They do not show a native host, a real approval dialog, or
-physical speaker playback. Keep their labels visible and describe them as previews.
+These assets are illustrated previews assembled from the bundled WAV files, the
+pet atlas, and the site's fonts. They do not show a native host, a real approval
+dialog, native pet rendering, or physical speaker playback. Keep their labels visible and describe them as previews.
 
 | Asset | Duration | Use |
 |---|---|---|
 | [Sound preview](../../assets/promotion/sound-preview.mp4) | 24 seconds | Main sound posts; cues at 0.5 s (alive), 6.5 s (need input), 10.5 s (no disassemble, with `rm -rf` on screen), 15.5 s (more input) |
 | [Attention preview](../../assets/promotion/attention-preview.mp4) | 12 seconds | Configuration post; one approval cue at 5.5 s |
+| [Pet preview](../../assets/promotion/pet-preview.mp4) | 16 seconds | Pet posts; silent; idle, working, review, and waving atlas animations |
 
-Each MP4 is 1080 x 1080, 15 fps, H.264/yuv420p with AAC audio, burned-in
-captions, and a fast-start header. An oscilloscope on screen sweeps each clip's
-waveform in sync with its audio. Matching `.srt` files and PNG posters live
+Each MP4 is 1080 x 1080, 15 fps, H.264/yuv420p with burned-in captions and a
+fast-start header. The sound and attention previews carry AAC audio; an
+oscilloscope sweeps each clip's waveform in sync while the robot plays a
+matching atlas animation (waving, waiting, blocked for the destructive cue).
+The pet preview has no audio track because the pet installs without sounds. Matching `.srt` files and PNG posters live
 beside the videos. The [manifest](../../assets/promotion/manifest.json) records
 hashes, source files, tool versions, and limitations. The README's
-[waveform GIFs](../../assets/previews/need-input.gif) remain available.
+[waveform GIFs](../../assets/previews/need-input.gif) and
+[pet GIFs](../../assets/previews/pet-waving.gif) remain available.
 
 Build locally with existing Pillow and FFmpeg installations:
 
@@ -62,6 +66,25 @@ Pass criteria for both recordings: visible native dialog, matching audio track,
 exact host/version noted in the capture record, readable captions at phone
 width, no private content, and no dubbed cue presented as live playback. Replace
 the preview disclaimer in the relevant post only after these criteria pass.
+
+## Native pet recording - 15-20 seconds
+
+This replaces the atlas preview once captured. Install the pet from the release
+ZIP or `agent-johnny5 pet install` and select Johnny 5 yourself; note the pet
+you had selected so you can restore it afterward.
+
+| Time | Capture | Caption |
+|---|---|---|
+| 0-3 s | Codex desktop (or a graphics-capable terminal) with version visible; Johnny 5 idle | A Codex pet |
+| 3-10 s | A harmless task in a disposable project, so the host shows its working/review states | Codex drives the animation |
+| 10-15 s | The pet picker with Johnny 5 selected, or `/pets Johnny 5` in the CLI | Download the ZIP. Choose Johnny 5. |
+| 15-18 s | Repository address | github.com/mitchtech/agent-johnny5 |
+
+Record only the pet and host window; crop out prompts, file names, and account
+details. Do not trigger states with fabricated input or describe an animation as
+reacting to an event you did not observe. Note the host, version, and OS in
+[validation](validation.md), then retire the "atlas preview" disclaimer only in
+posts that use the native clip.
 
 ## Quiet configuration recording - 10-15 seconds
 

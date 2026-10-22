@@ -16,8 +16,8 @@ changelog, and run the contributor checks. After its PR merges into `main`, tag
 the merged commit and push the tag:
 
 ```bash
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.2.0
+git push origin v0.2.0
 ```
 
 The release workflow checks Node 22/24 on macOS, Linux, and Windows, including
@@ -42,7 +42,8 @@ python3 scripts/package-release.py
 
 Release assets include the versioned npm tarball, a stable `agent-johnny5.tgz`
 alias, three identically encoded platform-prefixed Gemini ZIPs, and versioned
-and stable pet ZIPs containing the bundled artwork.
+and stable pet ZIPs containing the bundled artwork, and the nine-row
+`agent-johnny5-pet-web.webp` for account pet uploads.
 `SHA256SUMS` covers every attached artifact. ZIP order, timestamps, permissions,
 and extracted source bytes are checked.
 
@@ -68,12 +69,16 @@ committed files keep working; only rebuilds need the source.
 ## Pages and previews
 
 `site/` contains dependency-free HTML, CSS, and JavaScript. `npm run site`
-builds `dist/site`, copying audio and preview assets from their source
-directories. Avoid maintaining duplicate audio files.
+builds `dist/site`, copying audio, preview assets, the web atlas, and the pet
+bundle (as `pet/`, which drives the page's sprite animations) from their source
+directories. Avoid maintaining duplicate audio or art files.
 
 `python3 scripts/build-assets.py` renders a waveform GIF for each headline
-clip, a 1200 x 630 social card, a 1280 x 440 README banner, and a 180 x 180
-touch icon, all from the committed WAV files. Cards use the site's self-hosted
+clip, a GIF for six pet animation states, a 1200 x 630 social card and a
+1280 x 440 README banner that pair the robot with an oscilloscope, and a
+180 x 180 touch icon, all from the committed WAV files and pet atlas.
+`python3 scripts/export-pet-web.py` derives the committed web atlas in
+`assets/exports`; `check-pet.py` fails if it drifts from the active atlas. Cards use the site's self-hosted
 fonts with Pillow's basic layout engine, so their pixels match on every OS.
 `--check` renders to a temporary directory and fails if any committed preview
 differs by pixel; PNG bytes legitimately differ between platforms' zlib builds.
@@ -88,7 +93,8 @@ Its social card is also available at
 `https://mitchtech.github.io/agent-johnny5/previews/social.png`.
 
 Check keyboard navigation, narrow viewports, reduced motion, clipboard feedback,
-and all sound previews in both themes. The theme follows the operating system
+all sound previews, and the pet state and look-direction controls in both
+themes. The hero robot reacts to whichever clip plays. The theme follows the operating system
 until a visitor chooses one; `theme.js` stores that choice locally. `404.html`
 uses root-relative `/agent-johnny5/` paths because Pages serves it at any
 missing depth.

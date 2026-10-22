@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Johnny 5 sound notifications for Claude Code, Codex, and Gemini CLI. Hear every clip, see which agent event plays it, and install in two commands.">
+  <meta name="description" content="Johnny 5 sound notifications for Claude Code, Codex, and Gemini CLI, plus an independent Codex pet. Hear every clip, drive the robot's animations, and install in two commands.">
   <meta name="theme-color" content="#111417">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Agent Johnny 5 - Need input!">
-  <meta property="og:description" content="Your coding agent says Need input! when it needs you. Short Circuit sound cues for Claude Code, Codex, and Gemini CLI.">
+  <meta property="og:description" content="Your coding agent says Need input! when it needs you. Short Circuit sound cues for Claude Code, Codex, and Gemini CLI, and a native Codex pet.">
   <meta property="og:url" content="https://mitchtech.github.io/agent-johnny5/">
   <meta property="og:image" content="https://mitchtech.github.io/agent-johnny5/previews/social.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="An amber oscilloscope trace beside the words Need input!">
+  <meta property="og:image:alt" content="The Johnny 5 robot pet in front of an amber oscilloscope trace, beside the words Need input!">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="The Johnny 5 robot pet in front of an amber oscilloscope trace, beside the words Need input!">
   <link rel="canonical" href="https://mitchtech.github.io/agent-johnny5/">
+  <link rel="preload" href="pet/spritesheet.webp" as="image" type="image/webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="previews/touch-icon.png">
   <link rel="preload" href="fonts/chakra-petch-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,21 +25,39 @@
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
   <title>Agent Johnny 5 - Need input!</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Agent Johnny 5",
+    "description": "Johnny 5 sound notifications for Claude Code, Codex, and Gemini CLI, and an independent Codex pet with nine animations and sixteen look directions.",
+    "url": "https://mitchtech.github.io/agent-johnny5/",
+    "image": "https://mitchtech.github.io/agent-johnny5/previews/social.png",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS, Linux, Windows",
+    "softwareVersion": "__VERSION__",
+    "license": "https://opensource.org/licenses/MIT",
+    "codeRepository": "https://github.com/mitchtech/agent-johnny5",
+    "downloadUrl": "https://github.com/mitchtech/agent-johnny5/releases/latest",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Michael J. Mitchell", "url": "https://github.com/mitchtech" }
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="wrap masthead">
     <a class="brand" href="#" aria-label="Agent Johnny 5 home"><span class="optic" aria-hidden="true"><i></i><i></i></span><span>Agent Johnny&nbsp;5</span></a>
-    <nav aria-label="Main"><a href="#listen">Event map</a><a href="#install">Install</a><a href="https://github.com/mitchtech/agent-johnny5">GitHub <span aria-hidden="true">↗</span></a><button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Day theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3"/></svg></button></nav>
+    <nav aria-label="Main"><a href="#listen">Event map</a><a href="#pet">Codex pet</a><a href="#install">Install</a><a href="https://github.com/mitchtech/agent-johnny5">GitHub <span aria-hidden="true">↗</span></a><button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Day theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3"/></svg></button></nav>
   </header>
   <main id="main">
     <section class="wrap hero" aria-labelledby="title">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="led" aria-hidden="true"></span>Field unit No.&nbsp;5 · sound cues for coding agents</p>
+        <p class="eyebrow"><span class="led" aria-hidden="true"></span>Field unit No.&nbsp;5 · sound cues and a Codex pet</p>
         <h1 id="title">Need <em>input.</em></h1>
         <p class="intro">Your coding agent, with a robot's sense of urgency.</p>
-        <p class="description">Agent Johnny 5 plays lines from <i>Short Circuit</i> when Claude Code, Codex, or Gemini CLI needs you: an approval waiting, a question asked, a turn finished. And it yells "No disassemble!" when that approval is for <code class="nowrap">rm -rf</code>.</p>
-        <div class="actions"><a class="button primary" href="#install">Install in two commands <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/mitchtech/agent-johnny5/releases/tag/v__VERSION__">What's new in v__VERSION__</a></div>
+        <p class="description">Agent Johnny 5 plays lines from <i>Short Circuit</i> when Claude Code, Codex, or Gemini CLI needs you: an approval waiting, a question asked, a turn finished. And it yells "No disassemble!" when that approval is for <code class="nowrap">rm -rf</code>. The robot himself is a Codex pet that installs on its own.</p>
+        <div class="actions"><a class="button primary" href="#install">Install in two commands <span aria-hidden="true">↓</span></a><a class="button secondary" href="#pet">Meet the pet</a><a class="text-link" href="https://github.com/mitchtech/agent-johnny5/releases/tag/v__VERSION__">What's new in v__VERSION__</a></div>
         <p class="fineprint">Local. No telemetry. Never approves or blocks anything.</p>
       </div>
       <figure class="scope" aria-labelledby="scope-caption">
@@ -48,11 +68,12 @@
           <span><b>Event</b><output id="readout-event">-</output></span>
           <span><b>Length</b><output id="readout-length">-</output></span>
         </figcaption>
+        <div class="hero-pet" aria-hidden="true"><div class="sprite" data-pet="idle"></div></div>
         <div class="scope-controls"><button class="button scope-play" data-clip="alive" data-line="Number five is alive!" data-event="session_started" data-length="5.32">Power on <span aria-hidden="true">▶</span></button><button id="random-clip" class="button ghost">Random line</button></div>
       </figure>
     </section>
 
-    <div class="platform-strip"><div class="wrap"><span>Native hooks for</span><strong>Claude Code</strong><strong>Codex</strong><strong>Gemini CLI</strong><span>plus</span><strong>Your own agent</strong><span class="os">macOS · Linux · Windows</span></div></div>
+    <div class="platform-strip"><div class="wrap"><span>Native hooks for</span><strong>Claude Code</strong><strong>Codex</strong><strong>Gemini CLI</strong><span>plus</span><strong>Your own agent</strong><i class="divider" aria-hidden="true"></i><span>Native pet for</span><strong>Codex</strong><span class="os">macOS · Linux · Windows</span></div></div>
 
     <section class="wrap listen-section" id="listen" aria-labelledby="listen-title">
       <div class="section-heading"><p class="eyebrow">Event map</p><h2 id="listen-title">Every cue, <em>wired to an event.</em></h2><p>Twenty lines, each tied to something your agent does. Click a line to hear it on the scope. Your browser stays quiet until you do.</p></div>
@@ -79,6 +100,38 @@
 <span class="dim">allow? [y/n]</span> <span class="cursor" aria-hidden="true"></span></code></pre><button class="chip danger" data-clip="no-disassemble-five" data-line="No disassemble, Number Five!" data-event="approval_required · destructive" data-length="2.45"><span aria-hidden="true">▶ </span>No disassemble, Number Five!</button></div>
     </div></section>
 
+    <section class="wrap pet-section" id="pet" aria-labelledby="pet-title">
+      <div class="pet-stage">
+        <div class="bay"><div id="pet-sprite" class="sprite" data-pet="idle" role="img" aria-label="Johnny 5, a tracked robot with binocular optics, brow shutters, and tank treads"></div></div>
+        <p class="pet-readout"><span class="led" aria-hidden="true"></span><output id="pet-state" aria-live="polite">Johnny 5 is idle</output><span class="preview-label">Atlas preview</span></p>
+        <div class="states" role="group" aria-label="Preview an animation">
+          <button data-state="idle" aria-pressed="true">Idle</button><button data-state="working" aria-pressed="false">Working</button><button data-state="waiting" aria-pressed="false">Waiting</button><button data-state="review" aria-pressed="false">Review</button><button data-state="failure" aria-pressed="false">Blocked</button>
+          <button data-state="moving-right" aria-pressed="false">Move right</button><button data-state="moving-left" aria-pressed="false">Move left</button><button data-state="waving" aria-pressed="false">Wave</button><button data-state="jumping" aria-pressed="false">Jump</button>
+        </div>
+        <details class="direction-gallery"><summary>Sixteen look directions</summary>
+        <div class="states" role="group" aria-label="Preview a look direction">
+          <button data-state="look-0" aria-pressed="false">Up</button><button data-state="look-1" aria-pressed="false">Up-right 1</button><button data-state="look-2" aria-pressed="false">Up-right 2</button><button data-state="look-3" aria-pressed="false">Up-right 3</button><button data-state="look-4" aria-pressed="false">Right</button><button data-state="look-5" aria-pressed="false">Down-right 1</button><button data-state="look-6" aria-pressed="false">Down-right 2</button><button data-state="look-7" aria-pressed="false">Down-right 3</button><button data-state="look-8" aria-pressed="false">Down</button><button data-state="look-9" aria-pressed="false">Down-left 1</button><button data-state="look-10" aria-pressed="false">Down-left 2</button><button data-state="look-11" aria-pressed="false">Down-left 3</button><button data-state="look-12" aria-pressed="false">Left</button><button data-state="look-13" aria-pressed="false">Up-left 1</button><button data-state="look-14" aria-pressed="false">Up-left 2</button><button data-state="look-15" aria-pressed="false">Up-left 3</button>
+        </div></details>
+        <button id="motion-toggle" class="copy motion-toggle" aria-pressed="false">Pause animation</button>
+        <noscript><p class="fineprint">Animated previews need JavaScript. The pet remains downloadable.</p></noscript>
+      </div>
+      <div class="pet-copy">
+        <p class="eyebrow">Codex pet</p>
+        <h2 id="pet-title">Number five, <em>on screen.</em></h2>
+        <p>Johnny 5 is also a native Codex pet: nine animations, sixteen look directions, binocular optics, expressive brow shutters, and tank treads. Codex drives the animation from what your agent is doing. Here, you drive it.</p>
+        <p>The pet installs on its own. It never enables sounds, and the sound plugin never installs or selects a pet.</p>
+        <div class="actions"><a class="button primary" href="https://github.com/mitchtech/agent-johnny5/releases/latest/download/agent-johnny5-pet.zip">Download pet ZIP <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/mitchtech/agent-johnny5/blob/main/docs/pets.md">Pet guide <span aria-hidden="true">↗</span></a></div>
+        <ol class="steps">
+          <li>Extract the <code>johnny5</code> folder into <code>~/.codex/pets/</code>, or the <code>pets</code> folder inside your configured <code>CODEX_HOME</code>. No Node.js needed.</li>
+          <li>Refresh the desktop pet picker and choose Johnny 5, or enter <code class="nowrap">/pets Johnny 5</code> in a supported Codex CLI terminal.</li>
+        </ol>
+        <details class="install-panel"><summary>Prefer the command line?</summary><pre id="pet-command"><code>npm install -g github:mitchtech/agent-johnny5#v__VERSION__
+agent-johnny5 pet install
+agent-johnny5 doctor --pet</code></pre><button class="copy" data-copy="pet-command" aria-label="Copy pet commands">Copy</button><p>These commands install pet files only and never change your selected pet. <code>agent-johnny5 pet uninstall</code> removes an unchanged CLI-managed installation.</p></details>
+        <p class="fineprint">Making a ChatGPT account pet? <a href="exports/agent-johnny5-pet-web.webp" download>Download the nine-row web atlas</a> and keep the <a href="https://github.com/mitchtech/agent-johnny5/blob/main/pets/johnny5/NOTICE.md">CC BY 4.0 credit</a>. <a href="https://github.com/mitchtech/agent-johnny5/blob/main/docs/pets.md#web-upload">Web upload guide</a>.</p>
+      </div>
+    </section>
+
     <section class="install-section" id="install" aria-labelledby="install-title"><div class="wrap">
       <div class="section-heading"><p class="eyebrow">Install</p><h2 id="install-title">Two commands. <em>Johnny 5 is alive.</em></h2><p>Run these in your terminal. Node.js 22+ and a local audio player are required. Restart your agent after installation.</p></div>
       <div class="command-grid">
@@ -95,24 +148,25 @@ agent-johnny5 mute prompt_submitted
 agent-johnny5 mute easter-egg
 agent-johnny5 preset attention
 agent-johnny5 unmute all</code></pre><button class="copy" data-copy="control-command" aria-label="Copy control examples">Copy</button><p>Or ask your agent to "mute Johnny 5" through the bundled control skill. Global mute preserves your event preferences.</p></details>
-        <div class="install-panel pet-card"><p class="eyebrow">Codex pet</p><h3>Johnny 5 is alive</h3><p>Nine animations, sixteen look directions, and familiar binocular optics. Install from a checkout or release containing the artwork with <code>agent-johnny5 pet install</code>, then choose Johnny 5 in your host's pet picker. <a href="https://github.com/mitchtech/agent-johnny5/blob/main/docs/pets.md">Pet installation and compatibility</a>.</p></div>
+        <div class="install-panel pet-card"><p class="eyebrow">Codex pet</p><h3>Want the robot too?</h3><p>The pet is a separate four-file download for Codex. Extract it into <code>~/.codex/pets/</code> and choose Johnny 5 in the pet picker. <a href="#pet">Pet install steps</a>.</p></div>
       </div>
       <p id="copy-status" class="fineprint" role="status" aria-live="polite"></p>
     </div></section>
 
     <section class="wrap compatibility" aria-labelledby="compatibility-title">
-      <div class="compatibility-copy"><p class="eyebrow">Compatibility</p><h2 id="compatibility-title">Where it <em>plays.</em></h2><p>Sounds play on the machine that runs the hook, across agents and operating systems.</p><a class="text-link" href="https://github.com/mitchtech/agent-johnny5/blob/main/docs/compatibility.md">Full compatibility guide <span aria-hidden="true">↗</span></a></div>
-      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="compatibility-title"><table><caption class="visually-hidden">Sound support by environment</caption><thead><tr><th scope="col">Environment</th><th scope="col">Sounds</th><th scope="col">Events</th></tr></thead><tbody>
-        <tr><th scope="row">Claude Code</th><td class="yes">Native hooks</td><td>All 9</td></tr>
-        <tr><th scope="row">Codex CLI and desktop</th><td class="yes">Trusted hooks</td><td>Session, prompt, approval, completion, compaction, end</td></tr>
-        <tr><th scope="row">Gemini CLI</th><td class="yes">Native extension</td><td>Session, prompt, approval, completion, compaction, end</td></tr>
-        <tr><th scope="row">Other agents / scripts</th><td class="some">Event interface</td><td>Whatever you call</td></tr>
-        <tr><th scope="row">SSH, containers, WSL</th><td class="some">Local audio needed</td><td>Same as the host</td></tr>
-      </tbody></table></div>
+      <div class="compatibility-copy"><p class="eyebrow">Compatibility</p><h2 id="compatibility-title">Where it <em>plays.</em></h2><p>Sounds play on the machine that runs the hook, across agents and operating systems. Native pet support follows the host.</p><a class="text-link" href="https://github.com/mitchtech/agent-johnny5/blob/main/docs/compatibility.md">Full compatibility guide <span aria-hidden="true">↗</span></a></div>
+      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="compatibility-title"><table><caption class="visually-hidden">Sound and native pet support by environment</caption><thead><tr><th scope="col">Environment</th><th scope="col">Sounds</th><th scope="col">Events</th><th scope="col">Native pet</th></tr></thead><tbody>
+        <tr><th scope="row">Claude Code</th><td class="yes">Native hooks</td><td>All 9</td><td class="no">Unavailable</td></tr>
+        <tr><th scope="row">Codex desktop</th><td class="yes">Trusted hooks</td><td>Session, prompt, approval, completion, compaction, end</td><td class="yes">Host pet picker</td></tr>
+        <tr><th scope="row">Codex CLI</th><td class="yes">Trusted hooks</td><td>Same as desktop</td><td class="some">Graphics terminal<span aria-hidden="true">*</span></td></tr>
+        <tr><th scope="row">Gemini CLI</th><td class="yes">Native extension</td><td>Session, prompt, approval, completion, compaction, end</td><td class="no">Unavailable</td></tr>
+        <tr><th scope="row">Other agents / scripts</th><td class="some">Event interface</td><td>Whatever you call</td><td class="some">Host dependent</td></tr>
+        <tr><th scope="row">SSH, containers, WSL</th><td class="some">Local audio needed</td><td>Same as the host</td><td class="some">Host dependent</td></tr>
+      </tbody></table><p class="fineprint">*iTerm2 3.6+, Kitty graphics, or Sixel. No terminal pets inside tmux or Zellij. Local pets do not sync to ChatGPT web.</p></div>
     </section>
 
-    <section class="wrap closing" aria-labelledby="closing-title"><span class="optic big" aria-hidden="true"><i></i><i></i></span><h2 id="closing-title">Number five <em>is alive.</em></h2><p>Keep building. Johnny 5 will tell you when he needs input.</p><a class="button secondary" href="https://github.com/mitchtech/agent-johnny5">Explore the project <span aria-hidden="true">↗</span></a></section>
+    <section class="wrap closing" aria-labelledby="closing-title"><div class="sprite closing-pet" data-pet="waving" aria-hidden="true"></div><h2 id="closing-title">Number five <em>is alive.</em></h2><p>Keep building. Johnny 5 will tell you when he needs input.</p><a class="button secondary" href="https://github.com/mitchtech/agent-johnny5">Explore the project <span aria-hidden="true">↗</span></a></section>
   </main>
-  <footer class="wrap"><div><p class="footer-brand">Agent Johnny 5</p><p>Built by <a href="https://github.com/mitchtech">mitchtech</a>. Sibling of <a href="https://github.com/mitchtech/agent-navi">Agent Navi</a> and <a href="https://github.com/mitchtech/agent-warcraft">Agent Warcraft</a>. Code: MIT. Fonts: <a href="https://github.com/mitchtech/agent-johnny5/blob/main/site/fonts/OFL.md">SIL OFL</a>.</p></div><div><p>Johnny 5 and <i>Short Circuit</i> audio: TriStar Pictures. <a href="https://github.com/mitchtech/agent-johnny5/blob/main/audio/NOTICE.md">Audio rights notice</a>. No affiliation.</p><p><a href="https://github.com/mitchtech/agent-johnny5/issues">Report an issue</a><span aria-hidden="true"> · </span><a href="https://github.com/mitchtech/agent-johnny5/releases">Releases</a></p></div></footer>
+  <footer class="wrap"><div><p class="footer-brand">Agent Johnny 5</p><p>Built by <a href="https://github.com/mitchtech">mitchtech</a>. Sibling of <a href="https://github.com/mitchtech/agent-navi">Agent Navi</a> and <a href="https://github.com/mitchtech/agent-warcraft">Agent Warcraft</a>. Code: MIT. Pet artwork: <a href="https://github.com/mitchtech/agent-johnny5/blob/main/pets/johnny5/NOTICE.md">CC BY 4.0</a>. Fonts: <a href="https://github.com/mitchtech/agent-johnny5/blob/main/site/fonts/OFL.md">SIL OFL</a>.</p></div><div><p>Johnny 5 and <i>Short Circuit</i> audio: TriStar Pictures. <a href="https://github.com/mitchtech/agent-johnny5/blob/main/audio/NOTICE.md">Audio rights notice</a>. No affiliation.</p><p><a href="https://github.com/mitchtech/agent-johnny5/issues">Report an issue</a><span aria-hidden="true"> · </span><a href="https://github.com/mitchtech/agent-johnny5/releases">Releases</a></p></div></footer>
 </body>
 </html>

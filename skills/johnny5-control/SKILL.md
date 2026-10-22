@@ -9,8 +9,8 @@ description: >-
   "turn on session end sounds", "preview a Johnny 5 sound", "play No disassemble",
   "Number 5 is too loud", or asks to inspect or adjust Agent Johnny 5 notifications.
   DO NOT TRIGGER when: the user wants operating system volume controls, unrelated
-  notification settings, Agent Navi controls (use navi-control), pet artwork, or
-  pet selection through the host picker.
+  notification settings, Agent Navi controls (use navi-control), Agent Warcraft
+  controls (use warcraft-control), pet artwork, or pet selection through the host picker.
 ---
 
 # Johnny 5 sound controls

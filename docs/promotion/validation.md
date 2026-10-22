@@ -41,6 +41,24 @@ Completed on October 19, 2026 against the local build:
 - Both promotional MP4s were inspected with FFprobe: 24 and 12 seconds,
   1080 x 1080 H.264 with AAC audio.
 
+## v0.2.0 pet checks
+
+Completed on October 21, 2026 against the local build:
+
+- All contributor checks above passed again, and `check-pet.py` validated the
+  bundled atlas (73 occupied and 15 transparent cells) and confirmed the web
+  atlas decodes to exactly its first nine rows.
+- `build-assets.py --check` matched committed pixels for the new pet GIFs,
+  banner, and social card. `package-release.py` produced the pet ZIPs and web
+  atlas alongside the existing assets.
+- The local site build was checked in Chromium at 1440 x 900 (Day) and
+  390 x 844 (Night): no horizontal overflow and no console errors. The hero
+  robot switched to the blocked animation for the destructive cue, look
+  direction buttons selected the expected atlas cells, and reduced motion
+  froze the animation and disabled the pause control.
+- The three promotional MP4s were inspected with FFprobe: 24, 12, and 16
+  seconds at 1080 x 1080; the pet preview has no audio track by design.
+
 ## Remaining native checks
 
 The following have not been verified by automated, package, or browser checks:
@@ -50,6 +68,9 @@ The following have not been verified by automated, package, or browser checks:
 - Physical speaker output from an actual trusted Codex approval request.
 - End-to-end native behavior on Linux or Windows.
 - The published Pages site (only a local build has been checked).
+- The local pet bundle rendered and animated by Codex desktop.
+- The local pet in a graphics-capable Codex CLI terminal via `/pets Johnny 5`.
+- An account pet upload of `agent-johnny5-pet-web.webp`.
 
 The committed MP4s are labeled illustrated previews, not proof of those checks.
 Before publishing a claim of native behavior personally observed, complete the
@@ -60,3 +81,5 @@ Before publishing a claim of native behavior personally observed, complete the
 | Claude physical approval cue | Pending | Pending | Pending | Pending |
 | Claude destructive-command cue | Pending | Pending | Pending | Pending |
 | Codex trusted physical approval cue | Pending | Pending | Pending | Pending |
+| Codex desktop native pet | Pending | Pending | Pending | Pending |
+| Codex CLI terminal pet | Pending | Pending | Pending | Pending |

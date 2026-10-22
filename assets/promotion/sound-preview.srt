@@ -25,6 +25,6 @@ Illustrated sound preview - not a live host recording
 5
 00:00:19,000 --> 00:00:24,000
 Need input.
-Local audio. No telemetry.
-Never approves or blocks anything.
+Local audio. No telemetry. Never blocks anything.
+Optional Codex pet installs separately.
 Illustrated sound preview - not a live host recording

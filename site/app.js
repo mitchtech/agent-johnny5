@@ -20,6 +20,62 @@ let samples;
 let activeButton;
 let raf = 0;
 
+// Pet atlas: 192 x 208 cells; rows 9-10 hold sixteen single-frame look directions.
+const ROWS = { idle: [0, 6], 'moving-right': [1, 8], 'moving-left': [2, 8], waving: [3, 4], jumping: [4, 5], failure: [5, 8], waiting: [6, 6], working: [7, 6], review: [8, 6] };
+const LABELS = { idle: 'idle', working: 'working', waiting: 'waiting for input', review: 'reviewing', failure: 'blocked', 'moving-right': 'moving right', 'moving-left': 'moving left', waving: 'waving', jumping: 'jumping' };
+// The hero robot reacts to whichever line plays on the scope.
+const REACTIONS = { session_started: 'waving', prompt_submitted: 'working', approval_required: 'waiting', 'approval_required · shell or edit': 'review', 'approval_required · destructive': 'failure', input_required: 'waiting', ready_for_input: 'jumping', turn_completed: 'jumping', error: 'failure', context_compacting: 'working', session_ended: 'waving', 'easter-egg': 'jumping' };
+const pets = [...document.querySelectorAll('[data-pet]')].map(element => ({ element, state: element.dataset.pet, frame: 0 }));
+const heroPet = pets.find(pet => pet.element.closest('.hero-pet'));
+const stagePet = pets.find(pet => pet.element.id === 'pet-sprite');
+const motionButton = document.querySelector('#motion-toggle');
+let paused = false;
+
+function cell(state, frame) {
+  if (state.startsWith('look-')) { const direction = Number(state.slice(5)); return [direction % 8, 9 + Math.floor(direction / 8)]; }
+  return [frame, ROWS[state][0]];
+}
+
+function draw(pet) {
+  const [column, row] = cell(pet.state, pet.frame);
+  pet.element.style.setProperty('--col', column);
+  pet.element.style.setProperty('--row', row);
+}
+
+function pose(pet, state) {
+  if (!pet) return;
+  pet.state = state;
+  pet.frame = 0;
+  draw(pet);
+}
+
+setInterval(() => {
+  if (paused || reducedMotion.matches || document.hidden) return;
+  for (const pet of pets) {
+    if (pet.state.startsWith('look-')) continue;
+    pet.frame = (pet.frame + 1) % ROWS[pet.state][1];
+    draw(pet);
+  }
+}, 160);
+
+function motion() {
+  const stopped = paused || reducedMotion.matches;
+  motionButton.textContent = reducedMotion.matches ? 'Reduced motion is on' : stopped ? 'Resume animation' : 'Pause animation';
+  motionButton.disabled = reducedMotion.matches;
+  motionButton.setAttribute('aria-pressed', String(stopped));
+}
+
+document.querySelectorAll('[data-state]').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('[data-state]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  pose(stagePet, button.dataset.state);
+  const label = LABELS[button.dataset.state] ?? `looking ${button.textContent.toLowerCase()}`;
+  document.querySelector('#pet-state').textContent = `Johnny 5 is ${label}`;
+}));
+motionButton.addEventListener('click', () => { paused = !paused; motion(); });
+reducedMotion.addEventListener('change', motion);
+pets.forEach(draw);
+motion();
+
 function fit() {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
   const { width, height } = canvas.getBoundingClientRect();
@@ -109,6 +165,7 @@ function ensureAudio() {
 
 function settle(message) {
   scope.classList.remove('live');
+  pose(heroPet, 'idle');
   activeButton?.classList.remove('playing');
   activeButton = null;
   if (!reducedMotion.matches) idle();
@@ -129,6 +186,7 @@ async function play(button) {
     if (activeButton !== button) return;
     button.classList.add('playing');
     scope.classList.add('live');
+    pose(heroPet, REACTIONS[button.dataset.event] ?? 'idle');
     status.textContent = `Playing: ${button.dataset.line}`;
     cancelAnimationFrame(raf);
     if (reducedMotion.matches) await envelope(url);

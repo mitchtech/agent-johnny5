@@ -10,6 +10,7 @@ cpSync(join(root, 'site'), out, { recursive: true });
 const { version } = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 const html = readFileSync(join(out, 'index.html'), 'utf8').replaceAll('__VERSION__', version);
 writeFileSync(join(out, 'index.html'), html);
+cpSync(join(root, 'pets', 'johnny5'), join(out, 'pet'), { recursive: true });
 cpSync(join(root, 'audio'), join(out, 'audio'), { recursive: true });
 cpSync(join(root, 'assets', 'previews'), join(out, 'previews'), { recursive: true });
 if (existsSync(join(root, 'assets', 'exports'))) cpSync(join(root, 'assets', 'exports'), join(out, 'exports'), { recursive: true });

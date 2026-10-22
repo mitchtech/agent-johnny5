@@ -27,6 +27,11 @@
       "sha256": "08210a0bfc6cd80abf93957ed247982cf35f72ad9f5b554d632c5ef2baf4a7df"
     },
     {
+      "path": "pets/johnny5/spritesheet.webp",
+      "bytes": 2104062,
+      "sha256": "e33c50c6c33252c9368c78a0c75f3a377e904918943e34afd80c80aeb8bc359b"
+    },
+    {
       "path": "site/fonts/chakra-petch-latin-700-normal.woff2",
       "bytes": 9900,
       "sha256": "ce5095dc1cb200aaa939e38067a0677018d10e9f26ec38cdcf1557ac524fc775"
@@ -45,13 +50,13 @@
   "artifacts": [
     {
       "path": "assets/promotion/attention-preview.mp4",
-      "bytes": 133383,
-      "sha256": "8658b87a5870588cfe1552326e670cf4ab0f13304e0ce04ddce8d28619d0d472"
+      "bytes": 286853,
+      "sha256": "7fae46c0c36afeede7654e91577a62afe3425f0a69feb411fdf3fc1e2d70f702"
     },
     {
       "path": "assets/promotion/attention-preview.png",
-      "bytes": 44110,
-      "sha256": "93153eb8b049882d0b4a63ae0d83416c68ee1bc7e0302774f1d180fb9dd47f37"
+      "bytes": 109565,
+      "sha256": "f87e1bdb00d1e42ca08fa9e375dc1fb810eff361fb1367061279898a3119b148"
     },
     {
       "path": "assets/promotion/attention-preview.srt",
@@ -59,19 +64,34 @@
       "sha256": "cc7c21ded518f59ef565a4fbf67344280a17bb62b4b7b11685e78c19f0ba44ea"
     },
     {
+      "path": "assets/promotion/pet-preview.mp4",
+      "bytes": 398607,
+      "sha256": "da577d0921c107a2949c7bf50e96c5d1cc2ea1256ed2a7b2f428177ed58c17ae"
+    },
+    {
+      "path": "assets/promotion/pet-preview.png",
+      "bytes": 145551,
+      "sha256": "8b8f702939ba9fc25182450775c0fe210b5eff6e5c605006d3286722fbca32a6"
+    },
+    {
+      "path": "assets/promotion/pet-preview.srt",
+      "bytes": 564,
+      "sha256": "5074316904121580f225144ecc231d26b33a4692c9b727c80ccc7e60376f651e"
+    },
+    {
       "path": "assets/promotion/sound-preview.mp4",
-      "bytes": 520059,
-      "sha256": "dec0e801a1af4543df36a1eddb2cc90b8dbebe14df64dec02d3abe27436acebc"
+      "bytes": 777209,
+      "sha256": "9ffcbcf2333c3d24a7bf5120e695cc9077a77dc8d3bcb756f189c4cb347e67db"
     },
     {
       "path": "assets/promotion/sound-preview.png",
-      "bytes": 57963,
-      "sha256": "ffffc904a67c5a7bf5af9d657c14f4b96ebc592799799e3345884f5ae5e440a2"
+      "bytes": 130776,
+      "sha256": "baf3aa5ddf1d0a4276d00dae0f865a0aaf38e8651df1e8c66840b92df742e78f"
     },
     {
       "path": "assets/promotion/sound-preview.srt",
-      "bytes": 657,
-      "sha256": "0a4ea6c30d5bc9b619a8341f9200a5763f481cd947c334ea01ec53c6d123bded"
+      "bytes": 685,
+      "sha256": "ed2940a6812bc0c7efffc484c889a6528dd93dfec8e050a5ba50c7d27a658d22"
     }
   ],
   "tools": {
@@ -81,7 +101,7 @@
   "credentials_used": [],
   "limitations": [
     "Not a live host or physical audio recording.",
-    "No claim of hook execution in these videos.",
+    "No claim of hook execution or native pet rendering in these videos.",
     "Audio is assembled from the bundled, separately noticed Short Circuit clips."
   ]
 }

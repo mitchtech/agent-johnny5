@@ -1,7 +1,7 @@
 {
   "name": "agent-johnny5",
-  "version": "0.1.0",
-  "description": "Johnny 5 sound notifications for coding agents: Need input!",
+  "version": "0.2.0",
+  "description": "Johnny 5 sound notifications for coding agents and an independent Codex pet: Need input!",
   "type": "module",
   "bin": {
     "agent-johnny5": "scripts/johnny5.mjs"
@@ -34,6 +34,12 @@
     "assets/previews/no-disassemble-five.gif",
     "assets/previews/more-input.gif",
     "assets/previews/malfunction.gif",
+    "assets/previews/pet-waving.gif",
+    "assets/previews/pet-waiting.gif",
+    "assets/previews/pet-failure.gif",
+    "assets/previews/pet-working.gif",
+    "assets/previews/pet-review.gif",
+    "assets/promotion/pet-preview.png",
     "skills",
     "gemini-extension.json"
   ],
@@ -55,6 +61,9 @@
     "claude-code",
     "codex",
     "gemini-cli",
-    "gemini-cli-extension"
+    "gemini-cli-extension",
+    "codex-pet",
+    "custom-pets",
+    "sprite-animation"
   ]
 }

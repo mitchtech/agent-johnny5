@@ -1,11 +1,12 @@
 <h1 align="center">
-  <a href="https://mitchtech.github.io/agent-johnny5/"><img src="assets/previews/banner.png" alt="Agent Johnny 5: Need input! Sound cues for coding agents." width="100%"></a>
+  <a href="https://mitchtech.github.io/agent-johnny5/"><img src="assets/previews/banner.png" alt="Agent Johnny 5: Need input! Sound cues for coding agents and a native Codex pet." width="100%"></a>
 </h1>
 
 <p align="center">
   <a href="https://github.com/mitchtech/agent-johnny5/actions/workflows/check.yml"><img src="https://github.com/mitchtech/agent-johnny5/actions/workflows/check.yml/badge.svg" alt="Checks"></a>
   <a href="https://github.com/mitchtech/agent-johnny5/releases/latest"><img src="https://img.shields.io/github/v/release/mitchtech/agent-johnny5?color=ffb000&labelColor=1b1f23" alt="Release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/code-MIT-f2c230?labelColor=1b1f23" alt="Code: MIT"></a>
+  <a href="pets/johnny5/LICENSE.txt"><img src="https://img.shields.io/badge/pet_artwork-CC_BY_4.0-79aef5?labelColor=1b1f23" alt="Pet artwork: CC BY 4.0"></a>
   <a href="audio/NOTICE.md"><img src="https://img.shields.io/badge/audio-see_notice-ff3b30?labelColor=1b1f23" alt="Audio: see notice"></a>
 </p>
 
@@ -14,6 +15,7 @@
 <p align="center">
   <a href="https://mitchtech.github.io/agent-johnny5/"><b>Hear every clip</b></a> ·
   <a href="#sounds">Event map</a> ·
+  <a href="https://github.com/mitchtech/agent-johnny5/releases/latest/download/agent-johnny5-pet.zip">Download the Codex pet</a> ·
   <a href="https://github.com/mitchtech/agent-johnny5/releases">Releases</a> ·
   <a href="https://github.com/mitchtech/agent-navi">Sibling: Agent Navi</a> ·
   <a href="https://github.com/mitchtech/agent-warcraft">Sibling: Agent Warcraft</a>
@@ -27,11 +29,19 @@
     <td align="center"><img src="assets/previews/more-input.gif" width="144" alt="Waveform of More input"><br><sub>Ready</sub></td>
     <td align="center"><img src="assets/previews/malfunction.gif" width="144" alt="Waveform of Malfunction"><br><sub>Error</sub></td>
   </tr>
+  <tr>
+    <td align="center"><img src="assets/previews/pet-waving.gif" width="128" alt="Johnny 5 pet waving animation"><br><sub>Pet: waving</sub></td>
+    <td align="center"><img src="assets/previews/pet-waiting.gif" width="128" alt="Johnny 5 pet waiting animation"><br><sub>Pet: waiting</sub></td>
+    <td align="center"><img src="assets/previews/pet-failure.gif" width="128" alt="Johnny 5 pet blocked animation"><br><sub>Pet: blocked</sub></td>
+    <td align="center"><img src="assets/previews/pet-working.gif" width="128" alt="Johnny 5 pet working animation"><br><sub>Pet: working</sub></td>
+    <td align="center"><img src="assets/previews/pet-review.gif" width="128" alt="Johnny 5 pet review animation"><br><sub>Pet: review</sub></td>
+  </tr>
 </table>
 
-Johnny 5 sound notifications for coding agents. Native integrations for
-**Claude Code**, **Codex**, and **Gemini CLI**, plus a small event interface for
-other agents and scripts. One shared player supports macOS, Linux, and Windows.
+Johnny 5 sound notifications for coding agents and an **independent Codex pet**.
+Native sound integrations for **Claude Code**, **Codex**, and **Gemini CLI**, plus
+a small event interface for other agents and scripts. One shared player supports
+macOS, Linux, and Windows. The pet uses the host's native animation and activity states.
 
 Agent Johnny 5 plays 20 lines from *Short Circuit* (1986): "Number five is
 alive!" when a session starts, "Need input!" when an approval is waiting, and
@@ -45,9 +55,10 @@ inspired by [thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
 | Choice | Install | Requirements |
 |---|---|---|
 | Sounds | [Agent plugin](#install) or standalone CLI | Node.js 22+ and local audio |
-| Codex pet | [Pet bundle](#codex-pet) | A host with compatible custom pets |
+| Codex pet | [Pet ZIP or CLI](#codex-pet) | A host with compatible custom pets; no Node.js needed for the ZIP |
 
-Installing the sound plugin never installs or selects a pet.
+Installing the sound plugin never installs or selects a pet. Installing the pet
+never enables audio hooks or changes your sound settings. Take either, or both.
 
 ## Sound requirements
 
@@ -139,18 +150,34 @@ playback to a detached worker so the agent can continue immediately.
 
 ## Codex pet
 
-The bundled Johnny 5 pet has nine animations and sixteen look directions,
-with binocular optics, expressive brow shutters, and tank treads. Install it
-independently from the sounds. From a source checkout:
+<a href="assets/promotion/pet-preview.mp4"><img src="assets/promotion/pet-preview.png" width="360" align="right" alt="Pet preview video: Johnny 5 cycling through idle, working, review, and waving animations"></a>
+
+The Johnny 5 pet has nine animations and sixteen look directions, with
+binocular optics, expressive brow shutters, and tank treads. Codex drives its
+animation from what the agent is doing. It installs independently from the
+sounds. [Drive every animation on the site](https://mitchtech.github.io/agent-johnny5/#pet).
+
+1. Download [agent-johnny5-pet.zip](https://github.com/mitchtech/agent-johnny5/releases/latest/download/agent-johnny5-pet.zip).
+2. Extract its `johnny5` folder into `~/.codex/pets/`, or `pets/` inside your
+   configured `CODEX_HOME`. Keep existing files if you already have a Johnny 5 pet.
+3. Refresh the desktop pet picker and choose Johnny 5, or enter `/pets Johnny 5`
+   in a supported Codex CLI terminal.
+
+Or install with the CLI, which never changes your selected pet:
 
 ```bash
-node scripts/johnny5.mjs pet install
-node scripts/johnny5.mjs doctor --pet
+npm install -g github:mitchtech/agent-johnny5
+agent-johnny5 pet install
+agent-johnny5 doctor --pet
 ```
 
-Pet-enabled releases also include a standalone ZIP. Installation copies the
-local bundle; choose Johnny 5 in your host's pet picker afterward. See
-[installation, compatibility, and artwork provenance](docs/pets.md).
+From a source checkout, use `node scripts/johnny5.mjs pet install`. Different
+existing files require `pet install --replace`, which backs up the previous
+folder; `agent-johnny5 pet uninstall` removes only an unchanged CLI-managed
+installation. For a ChatGPT account pet, use the separate
+[nine-row web atlas](https://github.com/mitchtech/agent-johnny5/releases/latest/download/agent-johnny5-pet-web.webp)
+([upload guide](docs/pets.md#web-upload)). See [installation, compatibility, and
+artwork provenance](docs/pets.md).
 
 ## Sounds
 
@@ -316,6 +343,9 @@ python3 scripts/package-release.py
 npm run site
 ```
 
+`scripts/export-pet-web.py` regenerates the web atlas after the pet art changes,
+and `docs/promotion/build-media.py` rebuilds the captioned preview videos.
+
 Tests simulate players and cover host payloads, destructive-command detection,
 easter eggs, configuration, deduplication, overlap, failures, paths with spaces,
 and packaging. CI runs Node 22 and 24 on macOS, Linux, and Windows. See
@@ -333,10 +363,12 @@ the project workflow.
 - Author: [Michael J. Mitchell / mitchtech](https://github.com/mitchtech).
 - Johnny 5, *Short Circuit* (1986): TriStar Pictures. Voice of Johnny 5: Tim Blaney.
 - Clip sources: johnny5soundboard.com and the 101soundboards *Short Circuit* board.
+- Pet artwork: Michael J. Mitchell / mitchtech, [CC BY 4.0](pets/johnny5/LICENSE.txt), with [provenance](pets/johnny5/NOTICE.md).
 - Sibling projects: [Agent Navi](https://github.com/mitchtech/agent-navi) and [Agent Warcraft](https://github.com/mitchtech/agent-warcraft).
 - Original plugin inspiration: [thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
 
-Code and configuration: [MIT](LICENSE). Bundled audio is excluded from the MIT
-license; see the [audio rights notice](audio/NOTICE.md). Third-party character
+Code and configuration: [MIT](LICENSE). Contributor rights in the pet artwork:
+[CC BY 4.0](pets/johnny5/LICENSE.txt). Bundled audio is excluded from both
+licenses; see the [audio rights notice](audio/NOTICE.md). Third-party character
 rights and trademarks remain with their owners. This project is not affiliated
 with or endorsed by them.

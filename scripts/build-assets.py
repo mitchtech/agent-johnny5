@@ -1,4 +1,4 @@
-"""Derive preview artifacts from the committed clips; never change source audio."""
+"""Derive preview artifacts from the committed clips and pet atlas; never change source audio or art."""
 
 import sys
 import tempfile
@@ -24,6 +24,8 @@ MUTED = (163, 170, 174)
 AMBER = (255, 176, 0)
 GRATICULE = (52, 42, 14)
 LED = (255, 59, 48)
+SHEET = Image.open(ROOT / "pets" / "johnny5" / "spritesheet.webp").convert("RGBA")
+PET_STATES = [("idle", 0, 6), ("working", 7, 6), ("waiting", 6, 6), ("review", 8, 6), ("failure", 5, 8), ("waving", 3, 4)]
 HEADLINE_CLIPS = [
     ("alive", "Number five is alive!"),
     ("need-input", "Need input"),
@@ -111,6 +113,20 @@ def panel(canvas, box, clip):
     canvas.paste(crt, (left + 18, top + 46), mask)
 
 
+def frame(row, column):
+    return SHEET.crop((column * 192, row * 208, (column + 1) * 192, (row + 1) * 208))
+
+
+def robot(canvas, feet, scale, row=0, column=0):
+    """Paste a sprite frame scaled about its feet, over a soft amber floor shadow."""
+    x, y = feet
+    shadow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).ellipse((x - 70 * scale, y - 9 * scale, x + 70 * scale, y + 9 * scale), fill=AMBER + (60,))
+    canvas.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(8 * scale)))
+    sprite = frame(row, column).resize((round(192 * scale), round(208 * scale)), Image.Resampling.LANCZOS)
+    canvas.alpha_composite(sprite, (round(x - 96 * scale), round(y - 205 * scale)))
+
+
 def headline(canvas, xy, size, limit):
     draw = ImageDraw.Draw(canvas, "RGBA")
     x, y = xy
@@ -149,6 +165,15 @@ for clip, line in HEADLINE_CLIPS:
     durations = [70] * steps + [1600]
     frames[0].save(OUT / f"{clip}.gif", save_all=True, append_images=frames[1:], duration=durations, loop=0, disposal=2)
 
+# Pet previews: each host animation state at its native cell size.
+for state, row, count in PET_STATES:
+    frames = []
+    for column in range(count):
+        canvas = paper(288, 288)
+        canvas.alpha_composite(frame(row, column), (48, 52))
+        frames.append(canvas.convert("RGB"))
+    frames[0].save(OUT / f"pet-{state}.gif", save_all=True, append_images=frames[1:], duration=160, loop=0, disposal=2)
+
 # Fonts are the site's self-hosted OFL faces, so the cards match the page on every OS.
 card = paper(1200, 630)
 draw = ImageDraw.Draw(card, "RGBA")
@@ -156,17 +181,19 @@ eyebrow(card, (88, 92), 24)
 headline(card, (82, 140), 132, 580)
 draw.text((90, 310), "Your coding agent, with a robot's", font=font("chakra-petch-latin-500-normal.woff2", 38), fill=INK)
 draw.text((90, 356), "sense of urgency.", font=font("chakra-petch-latin-500-normal.woff2", 38), fill=INK)
-for row, text in enumerate(["Short Circuit sound cues for", "Claude Code, Codex, and Gemini CLI"]):
+for row, text in enumerate(["Short Circuit sound cues for Claude Code,", "Codex, and Gemini CLI. A native Codex pet."]):
     draw.text((90, 470 + row * 38), text, font=font("ibm-plex-sans-latin-400-normal.woff2", 28), fill=MUTED)
-panel(card, (700, 150, 1130, 480), "need-input")
+panel(card, (690, 92, 1130, 382), "need-input")
+robot(card, (1000, 572), 1.55, 6, 1)
 card.convert("RGB").save(OUT / "social.png")
 
 banner = paper(1280, 440)
 draw = ImageDraw.Draw(banner, "RGBA")
 eyebrow(banner, (92, 80), 22)
 headline(banner, (86, 122), 140, 700)
-draw.text((94, 300), "Sound cues for coding agents. No disassemble.", font=font("ibm-plex-sans-latin-400-normal.woff2", 30), fill=MUTED)
-panel(banner, (830, 70, 1200, 370), "alive")
+draw.text((94, 300), "Sound cues for coding agents and a native Codex pet.", font=font("ibm-plex-sans-latin-400-normal.woff2", 30), fill=MUTED)
+panel(banner, (860, 56, 1220, 300), "alive")
+robot(banner, (1090, 410), 1.4, 3, 2)
 banner.convert("RGB").save(OUT / "banner.png")
 
 touch = Image.new("RGBA", (180, 180), BACKGROUND + (255,))
@@ -201,6 +228,6 @@ if CHECK:
             stale.append(built.name)
     if stale:
         sys.exit(f"Preview assets are stale; run python3 scripts/build-assets.py: {', '.join(stale)}")
-    print("Preview assets match the current clips and fonts")
+    print("Preview assets match the current clips, pet atlas, and fonts")
 else:
     print(f"Built preview assets in {OUT}")

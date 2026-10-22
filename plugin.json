@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "johnny5",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Johnny 5 sound notifications for coding agents: Need input!",
   "author": {
     "name": "Michael J. Mitchell",

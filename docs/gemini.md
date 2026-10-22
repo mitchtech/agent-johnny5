@@ -6,7 +6,7 @@ Install from GitHub Releases containing the extension assets:
 gemini extensions install https://github.com/mitchtech/agent-johnny5
 ```
 
-For a pinned release, add `--ref v0.1.0`. Review hook consent, ensure Node.js 22+
+For a pinned release, add `--ref v0.2.0`. Review hook consent, ensure Node.js 22+
 and a local audio backend are on Gemini's PATH, and restart Gemini. Update with
 `gemini extensions update agent-johnny5` and uninstall with
 `gemini extensions uninstall agent-johnny5`.

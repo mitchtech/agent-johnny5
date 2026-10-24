@@ -31,8 +31,8 @@ deferred.
 > Codex pet with nine animations installs independently.
 
 Primary audience: developers running local Claude Code or Codex sessions who
-want audible attention cues. Secondary audience: Agent Navi users who want a
-different voice. Tertiary audience: Codex users who enjoy custom pets. Gemini
+want audible attention cues. Secondary audience: Agent Navi, Agent Warcraft, and
+Agent Rocky users who want a different voice. Tertiary audience: Codex users who enjoy custom pets. Gemini
 support is a supporting fact, not another campaign.
 
 Use one primary link per post:

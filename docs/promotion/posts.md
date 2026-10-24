@@ -105,7 +105,7 @@ https://github.com/mitchtech/agent-johnny5#sound-controls
 Trying Agent Johnny 5? Add the marketplace, install the plugin, then restart.
 
 Codex also requires hook trust review. Remote sessions play audio on the
-machine running the hook. Already running Agent Navi? Disable one per host.
+machine running the hook. Already running Agent Navi, Warcraft, or Rocky? Disable one per host.
 
 https://github.com/mitchtech/agent-johnny5#install
 

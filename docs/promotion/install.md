@@ -33,8 +33,8 @@ Installing or enabling the plugin alone does not establish hook trust.
 
 ## Already using another Agent plugin?
 
-Agent Navi, Agent Johnny 5, Agent Warcraft, and Agent Rocky answer the same
-events. Disable all but one per host, for example:
+Agent Navi, Agent Johnny 5, Agent Warcraft, Agent Rocky, Agent Star Wars, and
+Agent StarCraft answer the same events. Disable all but one per host, for example:
 `claude plugin disable navi@agent-navi` for Claude Code, or `enabled = false`
 under `[plugins."navi@agent-navi"]` in `~/.codex/config.toml` for Codex.
 

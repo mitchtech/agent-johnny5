@@ -6,7 +6,8 @@ and link only the relevant documentation.
 **What is Agent Johnny 5?** A free sound-notification plugin for coding agents
 that plays Johnny 5's lines from *Short Circuit*. Native sounds support Claude
 Code, Codex, and Gemini CLI; other tools can call the shared event interface.
-It is a sibling of Agent Navi, Agent Warcraft, and Agent Rocky and shares
+It is a sibling of Agent Navi, Agent Warcraft, Agent Rocky, Agent Star Wars, and
+Agent StarCraft and shares
 their runtime design.
 
 **Is it constantly talking?** Session, prompt, and attention events are enabled

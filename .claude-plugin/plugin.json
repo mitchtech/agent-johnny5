@@ -2,6 +2,7 @@
   "name": "johnny5",
   "version": "0.2.1",
   "description": "Johnny 5 sound notifications for coding agents: Need input!",
+  "icon": "./assets/previews/icon.png",
   "author": {
     "name": "Michael J. Mitchell",
     "email": "michael@mitchtech.net",

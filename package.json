@@ -1,6 +1,6 @@
 {
   "name": "agent-johnny5",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Johnny 5 sound notifications for coding agents and an independent Codex pet: Need input!",
   "type": "module",
   "bin": {
@@ -28,6 +28,7 @@
     "hooks",
     "docs",
     "CHANGELOG.md",
+    "assets/previews/icon.png",
     "assets/previews/banner.png",
     "assets/previews/alive.gif",
     "assets/previews/need-input.gif",

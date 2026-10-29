@@ -18,7 +18,10 @@
   <a href="https://github.com/mitchtech/agent-johnny5/releases/latest/download/agent-johnny5-pet.zip">Download the Codex pet</a> ·
   <a href="https://github.com/mitchtech/agent-johnny5/releases">Releases</a> ·
   <a href="https://github.com/mitchtech/agent-navi">Sibling: Agent Navi</a> ·
-  <a href="https://github.com/mitchtech/agent-warcraft">Sibling: Agent Warcraft</a>
+  <a href="https://github.com/mitchtech/agent-warcraft">Sibling: Agent Warcraft</a> ·
+  <a href="https://github.com/mitchtech/agent-rocky">Sibling: Agent Rocky</a> ·
+  <a href="https://github.com/mitchtech/agent-starwars">Sibling: Agent Star Wars</a> ·
+  <a href="https://github.com/mitchtech/agent-starcraft">Sibling: Agent StarCraft</a>
 </p>
 
 <table align="center">
@@ -47,8 +50,13 @@ Agent Johnny 5 plays 20 lines from *Short Circuit* (1986): "Number five is
 alive!" when a session starts, "Need input!" when an approval is waiting, and
 "No disassemble, Number Five!" when that approval is for `rm -rf`, a force push,
 or a dropped table. It runs locally, sends no telemetry, and never approves or
-blocks an agent's actions. A sibling of [Agent Navi](https://github.com/mitchtech/agent-navi) and [Agent Warcraft](https://github.com/mitchtech/agent-warcraft),
-inspired by [thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
+blocks an agent's actions. A sibling of
+[Agent Navi](https://github.com/mitchtech/agent-navi),
+[Agent Warcraft](https://github.com/mitchtech/agent-warcraft),
+[Agent Rocky](https://github.com/mitchtech/agent-rocky),
+[Agent Star Wars](https://github.com/mitchtech/agent-starwars), and
+[Agent StarCraft](https://github.com/mitchtech/agent-starcraft), inspired by
+[thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
 
 ## Choose your setup
 
@@ -114,11 +122,14 @@ hook file is included in the generated extension, not the source root. Install
 published release assets rather than linking the repository root or a raw Git
 branch. See [Gemini integration](docs/gemini.md).
 
-### Running alongside Agent Navi or Agent Warcraft
+### Running alongside the sibling plugins
 
-All three plugins respond to the same events. Enable one per host unless you
-want a fairy, a robot, and a peon talking over each other: `claude plugin disable navi@agent-navi`
-for Claude Code, or `enabled = false` under `[plugins."navi@agent-navi"]` in
+Agent Navi, Agent Johnny 5, Agent Warcraft, Agent Rocky, Agent Star Wars, and
+Agent StarCraft all respond to the same events. Enable one per host unless you
+want a fairy, a robot, a peon, an Eridian, two droids, and an SCV talking over
+each other. For example,
+`claude plugin disable navi@agent-navi` for Claude Code, or
+`enabled = false` under `[plugins."navi@agent-navi"]` in
 `~/.codex/config.toml` for Codex.
 
 ### Local development
@@ -364,7 +375,7 @@ the project workflow.
 - Johnny 5, *Short Circuit* (1986): TriStar Pictures. Voice of Johnny 5: Tim Blaney.
 - Clip sources: johnny5soundboard.com and the 101soundboards *Short Circuit* board.
 - Pet artwork: Michael J. Mitchell / mitchtech, [CC BY 4.0](pets/johnny5/LICENSE.txt), with [provenance](pets/johnny5/NOTICE.md).
-- Sibling projects: [Agent Navi](https://github.com/mitchtech/agent-navi) and [Agent Warcraft](https://github.com/mitchtech/agent-warcraft).
+- Sibling projects: [Agent Navi](https://github.com/mitchtech/agent-navi), [Agent Warcraft](https://github.com/mitchtech/agent-warcraft), [Agent Rocky](https://github.com/mitchtech/agent-rocky), [Agent Star Wars](https://github.com/mitchtech/agent-starwars), and [Agent StarCraft](https://github.com/mitchtech/agent-starcraft).
 - Original plugin inspiration: [thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
 
 Code and configuration: [MIT](LICENSE). Contributor rights in the pet artwork:

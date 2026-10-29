@@ -6,7 +6,9 @@ and link only the relevant documentation.
 **What is Agent Johnny 5?** A free sound-notification plugin for coding agents
 that plays Johnny 5's lines from *Short Circuit*. Native sounds support Claude
 Code, Codex, and Gemini CLI; other tools can call the shared event interface.
-It is a sibling of Agent Navi and shares its runtime design.
+It is a sibling of Agent Navi, Agent Warcraft, Agent Rocky, Agent Star Wars, and
+Agent StarCraft and shares
+their runtime design.
 
 **Is it constantly talking?** Session, prompt, and attention events are enabled
 by default where supported. Use the attention preset to silence session and
@@ -41,8 +43,8 @@ agent, verify the local audio player/device, and inspect the mute state. Codex
 also requires hook trust review. Use `doctor` for diagnostics and
 `preview need-input` for an explicit audio check.
 
-**I hear a fairy and a robot.** Agent Navi is installed too. Disable one per
-host; see the [install walkthrough](install.md#already-using-agent-navi).
+**I hear a fairy and a robot.** Another Agent plugin is installed too. Disable
+all but one per host; see the [install walkthrough](install.md#already-using-another-agent-plugin).
 
 **Will it play on my laptop from SSH, WSL, or a container?** Not automatically.
 Audio plays where the hook runs. A working audio bridge must already exist if

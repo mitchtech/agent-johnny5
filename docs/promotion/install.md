@@ -31,9 +31,10 @@ Review and trust the installed hooks in Codex's hook settings, then restart.
 Repeat the harmless approval check under your normal permission settings.
 Installing or enabling the plugin alone does not establish hook trust.
 
-## Already using Agent Navi?
+## Already using another Agent plugin?
 
-Both plugins answer the same events. Disable one per host:
+Agent Navi, Agent Johnny 5, Agent Warcraft, Agent Rocky, Agent Star Wars, and
+Agent StarCraft answer the same events. Disable all but one per host, for example:
 `claude plugin disable navi@agent-navi` for Claude Code, or `enabled = false`
 under `[plugins."navi@agent-navi"]` in `~/.codex/config.toml` for Codex.
 

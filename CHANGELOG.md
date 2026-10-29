@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1 - 2026-10-28
+
+- Add a 512 px plugin listing icon, which `claude plugin validate` asks for.
+- Link the Agent Rocky, Agent Star Wars, and Agent StarCraft sibling projects in the README, site, control skill, and promotion kit.
+
 ## 0.2.0 - 2026-10-21
 
 The Johnny 5 Codex pet ships.

@@ -10,7 +10,9 @@ description: >-
   "Number 5 is too loud", or asks to inspect or adjust Agent Johnny 5 notifications.
   DO NOT TRIGGER when: the user wants operating system volume controls, unrelated
   notification settings, Agent Navi controls (use navi-control), Agent Warcraft
-  controls (use warcraft-control), pet artwork, or pet selection through the host picker.
+  controls (use warcraft-control), Agent Rocky controls (use rocky-control),
+  Agent Star Wars controls (use starwars-control), Agent StarCraft controls (use
+  starcraft-control), pet artwork, or pet selection through the host picker.
 ---
 
 # Johnny 5 sound controls

@@ -39,5 +39,4 @@ the clips and pet atlas by `scripts/build-assets.py`, and `assets/exports` by
 `scripts/export-pet-web.py`; keep preview generation reproducible.
 
 Release and discovery procedures live in [distribution maintenance](docs/distribution.md).
-The [promotion kit](docs/promotion/README.md) contains public post drafts,
-captioned media, install guidance, and the owner-run campaign calendar.
+`scripts/build-media.py` rebuilds the captioned preview media in `assets/promotion/`.

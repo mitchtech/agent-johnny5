@@ -123,7 +123,6 @@ repository eligible for the official Gemini extension gallery; listing depends
 on its validation and crawl schedule.
 [Official discovery requirements](https://geminicli.com/docs/extensions/releasing/)
 
-Use authenticated GitHub traffic and release-download counts
-(`docs/promotion/capture-metrics.py`) for aggregate visibility checks. Those
-counts include development checks and are not reliable measurements of unique
-users. Keep the website free of analytics.
+Use authenticated GitHub traffic and release-download counts for aggregate
+visibility checks. Those counts include development checks and are not reliable
+measurements of unique users. Keep the website free of analytics.

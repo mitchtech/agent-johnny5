@@ -11,7 +11,7 @@ import sys
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "promotion"
 OUT.mkdir(parents=True, exist_ok=True)
 SIZE, FPS, RATE = 1080, 15, 32000

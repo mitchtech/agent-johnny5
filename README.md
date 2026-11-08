@@ -344,7 +344,7 @@ npm run site
 ```
 
 `scripts/export-pet-web.py` regenerates the web atlas after the pet art changes,
-and `docs/promotion/build-media.py` rebuilds the captioned preview videos.
+and `scripts/build-media.py` rebuilds the captioned preview videos.
 
 Tests simulate players and cover host payloads, destructive-command detection,
 easter eggs, configuration, deduplication, overlap, failures, paths with spaces,

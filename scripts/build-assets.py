@@ -211,6 +211,26 @@ draw.rounded_rectangle((98, 26, 154, 34), radius=4, fill=AMBER)
 touch.convert("RGB").save(OUT / "touch-icon.png")
 
 
+def scaled(v):
+    return round(v * 512 / 180)
+
+
+# The plugin listing icon: the touch icon's eyes and brows redrawn at the 512 px the Claude plugin validator asks for.
+listing = Image.new("RGBA", (512, 512), BACKGROUND + (255,))
+draw = ImageDraw.Draw(listing)
+draw.rounded_rectangle(tuple(scaled(v) for v in (12, 44, 168, 136)), radius=scaled(24), fill=(34, 38, 43), outline=AMBER, width=scaled(3))
+for cx in (58, 122):
+    glow = Image.new("RGBA", listing.size, (0, 0, 0, 0))
+    ImageDraw.Draw(glow).ellipse(tuple(scaled(v) for v in (cx - 34, 56, cx + 34, 124)), fill=AMBER + (150,))
+    listing.alpha_composite(glow.filter(ImageFilter.GaussianBlur(scaled(10))))
+    draw.ellipse(tuple(scaled(v) for v in (cx - 28, 62, cx + 28, 118)), fill=(138, 84, 0))
+    draw.ellipse(tuple(scaled(v) for v in (cx - 20, 70, cx + 20, 110)), fill=AMBER)
+    draw.ellipse(tuple(scaled(v) for v in (cx - 14, 74, cx - 2, 86)), fill=(255, 246, 216))
+draw.rounded_rectangle(tuple(scaled(v) for v in (26, 26, 82, 34)), radius=scaled(4), fill=AMBER)
+draw.rounded_rectangle(tuple(scaled(v) for v in (98, 26, 154, 34)), radius=scaled(4), fill=AMBER)
+listing.convert("RGB").save(OUT / "icon.png")
+
+
 def frames_of(path):
     with Image.open(path) as image:
         return [(item.convert("RGBA"), item.info.get("duration")) for item in ImageSequence.Iterator(image)]

@@ -19,7 +19,7 @@ def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     archive = pet.package(OUT, with_package=True)
-    version = json.loads((ROOT / "package.json").read_text())["version"]
+    version = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["version"]
     if archive:
         shutil.copyfile(archive, OUT / "agent-johnny5-pet.zip")
     shutil.copyfile(OUT / f"agent-johnny5-{version}.tgz", OUT / "agent-johnny5.tgz")
@@ -46,10 +46,10 @@ def main():
     if web.exists():
         shutil.copyfile(web, OUT / web.name)
     artifacts = sorted(path for path in OUT.iterdir() if path.name != "SHA256SUMS")
-    (OUT / "SHA256SUMS").write_text("".join(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}\n" for path in artifacts))
-    changelog = (ROOT / "CHANGELOG.md").read_text()
+    (OUT / "SHA256SUMS").write_text("".join(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}\n" for path in artifacts), encoding="utf-8", newline="\n")
+    changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
     section = changelog.split(f"## {version} - ", 1)[1].split("\n## ", 1)[0].split("\n", 1)[1].lstrip("\n")
-    (ROOT / "dist" / "release-notes.md").write_text(section)
+    (ROOT / "dist" / "release-notes.md").write_text(section, encoding="utf-8", newline="\n")
     print(f"Built {len(artifacts)} release assets and checksums in {OUT}")
 
 
